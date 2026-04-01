@@ -18,7 +18,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN composer install --no-dev --optimize-autoloader
 
 # Fix permissions
-RUN chmod -R 777 storage bootstrap/cache
+RUN mkdir -p storage bootstrap/cache && chmod -R 777 storage bootstrap/cache
 
 # Expose port
 EXPOSE 8080

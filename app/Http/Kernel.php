@@ -1,0 +1,1 @@
+'premium' => \App\Http\Middleware\CheckSubscription::class,

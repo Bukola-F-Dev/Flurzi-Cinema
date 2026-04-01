@@ -1,9 +1,10 @@
-FROM php:8.2-cli
+FROM php:8.3-cli
 
-# System packages + PHP extensions Laravel needs
+# Install system packages + PHP extensions
 RUN apt-get update && apt-get install -y \
-    git unzip curl libzip-dev zip libpng-dev \
-    && docker-php-ext-install zip pdo pdo_mysql gd
+    git unzip curl libzip-dev zip libpng-dev libgmp-dev libxml2-dev ftp \
+    && docker-php-ext-install zip pdo pdo_mysql gd bcmath gmp ftp \
+    && apt-get clean
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer

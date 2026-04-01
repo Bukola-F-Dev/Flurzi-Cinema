@@ -14,6 +14,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider {
     /**
@@ -28,7 +29,11 @@ class AppServiceProvider extends ServiceProvider {
      */
     public function boot(): void {
 
-        // System install check (leave as is)
+        if (app()->environment('production')) {
+            URL::forceScheme('https');
+        }
+    
+        // System install check
         if (!cache()->get('SystemInstalled')) {
             $envFilePath = base_path('.env');
             if (!file_exists($envFilePath)) {
@@ -44,7 +49,6 @@ class AppServiceProvider extends ServiceProvider {
             }
         }
     
-        // Global shared data
         view()->share([
             'emptyMessage' => 'Data not found',
         ]);
@@ -64,7 +68,6 @@ class AppServiceProvider extends ServiceProvider {
             }
         });
     
-   
         view()->composer('admin.partials.sidenav', function ($view) {
             $view->with([
                 'bannedUsersCount'           => User::banned()->count() ?? 0,
@@ -84,6 +87,9 @@ class AppServiceProvider extends ServiceProvider {
             ]);
         });
     
+        Paginator::useBootstrapFive();
+    }
+    
      
       
       /*
@@ -101,6 +107,6 @@ class AppServiceProvider extends ServiceProvider {
         //     \URL::forceScheme('https');
         // }
     
-        Paginator::useBootstrapFive();
-    }
+      
+  
 }

@@ -67,7 +67,7 @@ body {
 
             @if (!request()->routeIs('short.videos'))
                 @include('Template::partials.header')
-                @if (!in_array(request()->route()->getName(), ['home', 'contact', 'live.tv', 'live.tournaments', 'tournament.detail', 'game.detail', 'short.videos']))
+                @if (!in_array(request()->route()->getName(), ['home', 'contact', 'user.login', 'live.tv', 'live.tournaments', 'tournament.detail', 'game.detail', 'short.videos']))
                     @include('Template::partials.breadcrumb')
                 @endif
             @endif

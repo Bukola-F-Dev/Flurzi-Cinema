@@ -8,39 +8,46 @@
     <section class="auth-modern">
     <div class="auth-overlay"></div>
 
-    <div class="container">
-        <div class="auth-wrapper">
+    <div class="auth-full">
 
-            <!-- LOGO -->
-            <div class="auth-header text-center">
-                        <div class="flurzi-logo mb-3">
-    <span class="logo-dot"></span>
-    <span class="logo-text">
-        FLURZI<span>CINEMA</span>
-    </span>
-    <h2>Welcome Back</h2>
-                <p>Login to continue your movie experience</p>
-</div>
-                        </div>
-                        <div class="right">
-                            <div class="text-center">
-                                @include('Template::partials.social_login')
-                            </div>
+        <!-- LEFT SIDE -->
+        <div class="auth-left">
+            <div class="flurzi-logo mb-4">
+                <span class="logo-dot"></span>
+                <span class="logo-text">
+                    FLURZI<span>CINEMA</span>
+                </span>
+            </div>
 
-     <!-- FORM -->
-     <form class="auth-form verify-gcaptcha" action="{{ route('user.login') }}" method="post">
+            <h1>Welcome Back</h1>
+            <p>Login to continue your movie experience</p>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="auth-right">
+
+            <form class="auth-form verify-gcaptcha" action="{{ route('user.login') }}" method="post">
                 @csrf
 
+                <!-- USERNAME -->
                 <div class="form-group">
                     <label>@lang('Username')</label>
-                    <input class="form-control" name="username" type="text" value="{{ old('username') }}"
-                        placeholder="Enter your username">
+                    <div class="icon-input">
+                        <i class="fas fa-user"></i>
+                        <input name="username" type="text"
+                            value="{{ old('username') }}"
+                            placeholder="Enter your username">
+                    </div>
                 </div>
 
+                <!-- PASSWORD -->
                 <div class="form-group">
                     <label>@lang('Password')</label>
-                    <input class="form-control" name="password" type="password"
-                        placeholder="Enter your password">
+                    <div class="icon-input">
+                        <i class="fas fa-lock"></i>
+                        <input name="password" type="password"
+                            placeholder="Enter your password">
+                    </div>
                 </div>
 
                 <x-captcha />
@@ -54,118 +61,84 @@
                     <a href="{{ route('user.password.request') }}">@lang('Reset now')</a>
                 </p>
 
-                <!-- SOCIAL LOGIN -->
-                <div class="auth-social text-center">
+                <div class="auth-social">
                     @include('Template::partials.social_login')
                 </div>
 
             </form>
 
         </div>
+
     </div>
 </section>
 @endsection
 
 <style>
-.flurzi-logo {
+/* FULL LAYOUT */
+.auth-full {
     display: flex;
     align-items: center;
-    gap: 10px;
-}
-
-.logo-dot {
-    width: 28px;
-    height: 28px;
-    background: linear-gradient(135deg, #ff003c, #ff4d4d);
-    border-radius: 50%;
-    box-shadow: 0 0 15px rgba(255, 0, 60, 0.7);
-}
-
-.logo-text {
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: #fff;
-}
-
-.logo-text span {
-    color: #ff003c;
-    margin-left: 2px;
-}
-
-/* SECTION BACKGROUND */
-.auth-modern {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: radial-gradient(circle at 20% 30%, rgba(168,85,247,0.25), transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(99,102,241,0.25), transparent 40%),
-                linear-gradient(135deg, #05010a, #0b0120);
-
-    font-family: 'Poppins', sans-serif;
-}
-
-/* OVERLAY */
-.auth-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(5, 1, 15, 0.6);
-    backdrop-filter: blur(8px);
-}
-
-/* CARD */
-.auth-wrapper {
-    position: relative;
-    z-index: 2;
-
+    justify-content: space-between;
     width: 100%;
-    max-width: 420px;
+    max-width: 1100px;
+    margin: auto;
+    gap: 60px;
     padding: 40px;
-
-    border-radius: 20px;
-
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-
-    backdrop-filter: blur(20px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
 }
 
-/* HEADER */
-.auth-header img {
-    width: 80px;
-    margin-bottom: 15px;
-}
-
-.auth-header h2 {
-    font-weight: 600;
+/* LEFT SIDE */
+.auth-left {
+    flex: 1;
     color: #fff;
-    margin-bottom: 5px;
 }
 
-.auth-header p {
-    font-size: 14px;
+.auth-left h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.auth-left p {
     color: #aaa;
+    font-size: 16px;
+}
+
+/* RIGHT SIDE */
+.auth-right {
+    flex: 1;
+}
+
+/* REMOVE SMALL BOX FEEL */
+.auth-wrapper {
+    max-width: none;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
 }
 
 /* FORM */
-.auth-form .form-group {
-    margin-bottom: 18px;
-}
-
-.auth-form label {
-    font-size: 13px;
-    color: #bbb;
-    margin-bottom: 5px;
-    display: block;
-}
-
-.auth-form .form-control {
+.auth-form {
     width: 100%;
-    padding: 12px 15px;
+}
+
+/* INPUT WITH ICON */
+.icon-input {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.icon-input i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.icon-input input {
+    width: 100%;
+    padding: 14px 15px 14px 45px;
     border-radius: 12px;
 
     background: rgba(255,255,255,0.05);
@@ -175,33 +148,32 @@
     font-size: 14px;
 }
 
-.auth-form .form-control:focus {
+.icon-input input:focus {
     outline: none;
     border-color: #a855f7;
-    box-shadow: 0 0 10px rgba(168,85,247,0.4);
+    box-shadow: 0 0 15px rgba(168,85,247,0.4);
 }
 
 /* BUTTON */
 .btn-auth {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     border-radius: 999px;
     border: none;
 
     background: linear-gradient(135deg, #a855f7, #6366f1);
     color: #fff;
-    font-weight: 500;
+    font-weight: 600;
 
     transition: 0.3s ease;
-    margin-top: 10px;
 }
 
 .btn-auth:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(168,85,247,0.5);
+    box-shadow: 0 10px 30px rgba(168,85,247,0.6);
 }
 
-/* EXTRA LINKS */
+/* EXTRA */
 .auth-extra {
     margin-top: 15px;
     font-size: 13px;
@@ -211,11 +183,11 @@
 
 .auth-extra a {
     color: #a855f7;
-    text-decoration: none;
 }
 
 /* SOCIAL */
 .auth-social {
-    margin-top: 20px;
+    margin-top: 25px;
+    text-align: center;
 }
 </style>

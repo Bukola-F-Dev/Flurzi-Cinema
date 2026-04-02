@@ -39,7 +39,7 @@
         </div>
  <!-- NEW: Center Image -->
  <div class="hero-modern-image">
- <img src="{{ asset('assets/images/Hero_Image.PNG') }}" alt="happy users">
+ <img src="{{ asset('assets/images/Hero_Image.png') }}" alt="happy users">
         </div>
 
     </div>

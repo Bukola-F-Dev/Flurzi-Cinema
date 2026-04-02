@@ -37,6 +37,10 @@
             </a>
 
         </div>
+ <!-- NEW: Center Image -->
+ <div class="hero-modern-image">
+            <img src="https://wallpapercave.com/wp/wp9428353.jpg" alt="anime group">
+        </div>
 
     </div>
 </section>
@@ -439,7 +443,7 @@
 /* TITLE */
 .hero-modern-title {
     font-size: 52px;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.2;
     margin-bottom: 20px;
 }
@@ -465,11 +469,14 @@
     flex-wrap: wrap;
 }
 
+ 
 .btn-modern {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
-    padding: 12px 22px;
+    width: 180px;  
+    height: 50px;    
     border-radius: 999px;
     font-size: 14px;
     font-weight: 500;
@@ -502,6 +509,25 @@
 .btn-info-wrap:hover {
     background: rgba(255,255,255,0.15);
 }
+/* IMAGE UNDER BUTTON */
+.hero-modern-image {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-modern-image img {
+    width: 420px;
+    max-width: 90%;
+    border-radius: 20px;
+
+    /* subtle glow like reference */
+    box-shadow: 0 20px 60px rgba(168, 85, 247, 0.25);
+    transition: transform 0.4s ease;
+}
+
+.hero-modern-image img:hover {
+    transform: scale(1.03);
 /* SECTION */
 .section-modern {
     padding: 60px 0;

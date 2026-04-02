@@ -90,7 +90,7 @@
         <div class="container d-flex justify-content-between flex-wrap">
             <p>
                 © {{ date('Y') }} 
-                <span>{{ gs('site_name') }}</span> — All Rights Reserved
+                <span>Flurzi Cinema</span> — All Rights Reserved
             </p>
 
             <div class="footer-policies">

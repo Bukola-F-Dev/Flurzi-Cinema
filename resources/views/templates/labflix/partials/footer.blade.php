@@ -24,7 +24,7 @@
 </div>
 
                     <p class="footer-text">
-                        {{ __(@$footer->data_values->about_us) }}
+                       At Flurzi Cinema, stream, discover and Binge-watch your favorite movies, anytime, anywhere!
                     </p>
 
                     <div class="social-links-modern">

@@ -121,17 +121,19 @@
                     @endphp
 
                     <div class="auth-terms">
-                        <input type="checkbox" id="agree" name="agree">
-                        <label for="agree">I agree to</label>
+    <label class="terms-wrap">
+        <input type="checkbox" id="agree" name="agree">
 
-                        <span>
-                            @foreach($policyPages as $policy)
-                                <a href="{{ route('policy.pages', $policy->slug) }}" target="_blank">
-                                    {{ $policy->data_values->title }}
-                                </a>{{ !$loop->last ? ',' : '' }}
-                            @endforeach
-                        </span>
-                    </div>
+        <span>
+            I agree to
+            @foreach($policyPages as $policy)
+                <a href="{{ route('policy.pages', $policy->slug) }}" target="_blank">
+                    {{ $policy->data_values->title }}
+                </a>{{ !$loop->last ? ',' : '' }}
+            @endforeach
+        </span>
+    </label>
+</div>
                 @endif
 
                 <button class="btn-auth" type="submit">Register</button>
@@ -260,14 +262,41 @@ margin-top: 180px;
     color: #fff;
 }
 
-/* TERMS */
 .auth-terms {
+    margin-bottom: 15px;
+}
+
+/* Wrap everything together */
+.terms-wrap {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
+
     font-size: 13px;
     color: #aaa;
-    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Checkbox */
+.terms-wrap input {
+    accent-color: #a855f7;
+    margin-top: 2px;
+}
+
+/* Text + links */
+.terms-wrap span {
+    display: inline;
+}
+
+/* Links */
+.terms-wrap a {
+    color: #a855f7;
+    text-decoration: none;
+    margin-left: 4px;
+}
+
+.terms-wrap a:hover {
+    text-decoration: underline;
 }
 
 .auth-terms input {
@@ -279,7 +308,7 @@ margin-top: 180px;
     width: 100%;
     padding: 14px;
     border-radius: 999px;
-
+    margin-bottom: 10px;
     background: linear-gradient(135deg, #a855f7, #6366f1);
     border: none;
 

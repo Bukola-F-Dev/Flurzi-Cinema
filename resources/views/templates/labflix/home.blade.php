@@ -15,7 +15,7 @@
         <span class="badge-modern">Trending Now</span>
 
         <h1 class="hero-modern-title">
-            Welcome to <span>Flurzi</span>
+            Welcome to Flurzi
         </h1>
 
         <p class="hero-modern-subtitle">

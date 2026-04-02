@@ -84,6 +84,7 @@
     margin: auto;
     gap: 60px;
     padding: 40px;
+    margin-top:40px;
 }
 
 /* LEFT SIDE */

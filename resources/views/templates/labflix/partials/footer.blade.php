@@ -235,30 +235,38 @@
     transform: translateX(5px);
 }
 
+.social-links-modern {
+    display: flex;
+    justify-content: center; /* center them */
+    gap: 12px;
+    margin-top: 20px;
+}
+
 .social-links-modern a {
-    display: inline-flex;
-    width: 38px;
-    height: 38px;
+    display: flex;
+    width: 42px;
+    height: 42px;
     align-items: center;
     justify-content: center;
-    margin-right: 8px;
     border-radius: 50%;
-    background: #1a1a22;
+    background: rgba(255,255,255,0.05);
     color: #fff;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
 .social-links-modern a:hover {
-    background: #ff003c;
-    box-shadow: 0 0 10px rgba(255, 0, 60, 0.6);
+    background: linear-gradient(135deg, #a855f7, #6366f1);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(168,85,247,0.4);
 }
-
 .subscribe-modern {
     display: flex;
-    background: #111;
-    border-radius: 50px;
-    overflow: hidden;
-    border: 1px solid #222;
+    align-items: center;
+    background: rgba(255,255,255,0.05);
+    border-radius: 999px;
+    padding: 5px;
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
 }
 
 .subscribe-modern input {
@@ -267,20 +275,34 @@
     padding: 12px 15px;
     background: transparent;
     color: #fff;
+    font-size: 14px;
+    outline: none;
+}
+
+.subscribe-modern input::placeholder {
+    color: #888;
 }
 
 .subscribe-modern button {
-    background: #ff003c;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
     border: none;
-    padding: 0 18px;
+
+    background: linear-gradient(135deg, #a855f7, #6366f1);
     color: #fff;
-    transition: 0.3s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.3s ease;
 }
 
 .subscribe-modern button:hover {
-    background: #ff1a4d;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(168,85,247,0.6);
 }
-
 .footer-bottom {
     border-top: 1px solid #1a1a22;
     padding: 20px 0;
@@ -305,6 +327,38 @@
 .footer-modern:hover .footer-gradient {
     transform: scale(1.1);
     transition: 1.5s ease;
+}
+.footer-modern {
+    background: linear-gradient(180deg, #070114, #030308);
+}
+
+.footer-title {
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ddd;
+}
+
+.apps {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.apps a {
+    display: inline-block;
+    transition: 0.3s ease;
+}
+
+.apps img {
+    height: 45px;
+    width: auto;
+    border-radius: 8px;
+}
+
+.apps a:hover {
+    transform: translateY(-3px) scale(1.05);
 }
 </style>
 

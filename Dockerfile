@@ -1,30 +1,42 @@
-FROM php:8.2-cli
+FROM php:8.2-apache
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
-    git unzip curl libzip-dev zip libpng-dev libxml2-dev libpq-dev \
-    && docker-php-ext-install zip pdo pdo_mysql pdo_pgsql pgsql gd bcmath
+    unzip \
+    git \
+    curl \
+    libzip-dev \
+    libpng-dev \
+    libxml2-dev
 
-# Set working directory
-WORKDIR /var/www
+# Install PHP extensions
+RUN docker-php-ext-install pdo pdo_mysql zip gd bcmath
 
-# Copy project files
-COPY . .
+# Enable Apache rewrite
+RUN a2enmod rewrite
+
+# Set document root to Laravel public folder
+ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+
+# Copy project
+COPY . /var/www/html
+
+WORKDIR /var/www/html
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Install Laravel dependencies
+# Install dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Fix permissions
-RUN mkdir -p storage/framework/views \
-    storage/framework/cache \
-    storage/framework/sessions \
-    bootstrap/cache && chmod -R 777 storage bootstrap/cache
+# Set permissions
+RUN chown -R www-data:www-data /var/www/html
 
 # Expose port
 EXPOSE 8080
 
-# Start Laravel app
-CMD php -S 0.0.0.0:$PORT -t public
+# Start Apache
+CMD ["apache2-foreground"]

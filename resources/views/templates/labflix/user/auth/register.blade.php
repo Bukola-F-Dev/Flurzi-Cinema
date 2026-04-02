@@ -180,6 +180,29 @@
 
 @push('style')
     <style>
+    .auth-full {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: 1000px; /* tighter = more premium */
+    margin: 120px auto;
+    padding: 50px;
+    gap: 50px;
+
+    border-radius: 24px;
+
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(25px);
+
+     
+
+    overflow: hidden;
+}
     /* RIGHT SIDE GLASS PANEL */
 .auth-right {
     padding: 35px;
@@ -266,12 +289,11 @@
 
 /* HOVER */
 .btn-auth:hover {
-    box-shadow: 0 10px 30px rgba(168,85,247,0.6);
-    transform: translateY(-2px);
+       transform: translateY(-2px);
 }
 .icon-input input:focus {
     border-color: #a855f7;
-    box-shadow: 0 0 15px rgba(168,85,247,0.4);
+   
 }
         .form-disabled {
             overflow: hidden;
@@ -305,6 +327,44 @@
             font-weight: 800;
             line-height: 1.2;
         }
+        .auth-modern {
+    position: relative;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Poppins', sans-serif;
+
+    background:
+        radial-gradient(circle at 20% 30%, rgba(168,85,247,0.25), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(99,102,241,0.25), transparent 40%),
+        linear-gradient(135deg, #05010a, #0b0120);
+}
+.auth-full::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    top: -80px;
+    left: -80px;
+
+    background: radial-gradient(circle, rgba(168,85,247,0.4), transparent 70%);
+    filter: blur(80px);
+}
+
+.auth-full::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    bottom: -80px;
+    right: -80px;
+
+    background: radial-gradient(circle, rgba(99,102,241,0.4), transparent 70%);
+    filter: blur(80px);
+}
     </style>
 @endpush
 

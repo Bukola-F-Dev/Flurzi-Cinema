@@ -19,7 +19,9 @@
         </h1>
 
         <p class="hero-modern-subtitle">
-            Unlimited Movies, Shows, and More. Experience cinema from home.
+        Dive into a universe of entertainment where movies, shows, and originals come together.
+         Whether you're in the mood for action, romance,
+         or thrilling adventures, our platform brings you closer to the stories you love. Anytime, Anywhere.
         </p>
 
         <div class="hero-modern-actions">
@@ -429,7 +431,7 @@
     max-width: 800px;
 }
 .hero-modern-image img {
-    width: 420px;
+    width: 500px;
     max-width: 90%;
 
     /* Blend into background */
@@ -450,7 +452,7 @@
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255,255,255,0.1);
     margin-bottom: 20px;
-    margin-top:100px;
+    margin-top:180px;
 }
 
 /* TITLE */

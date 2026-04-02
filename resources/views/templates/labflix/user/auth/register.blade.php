@@ -4,13 +4,29 @@
         $register = getContent('register.content', true);
     @endphp
 
-    <section class="mt-80 mb-80">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="account-area @if (!gs('registration')) form-disabled @endif">
-                        @if (!gs('registration'))
-                            <span class="form-disabled-text">
+    <section class="auth-modern">
+    <div class="auth-overlay"></div>
+
+    <div class="auth-full">
+
+        <!-- LEFT SIDE -->
+        <div class="auth-left">
+            <div class="flurzi-logo mb-4">
+                <span class="logo-dot"></span>
+                <span class="logo-text">
+                    FLURZI<span>CINEMA</span>
+                </span>
+            </div>
+
+            <h1>Create Account</h1>
+            <p>Join Flurzi and start streaming unlimited entertainment</p>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="auth-right account-area @if (!gs('registration')) form-disabled @endif">
+
+            @if (!gs('registration'))
+            <span class="form-disabled-text">
                                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" x="0" y="0"
                                     viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"
@@ -31,82 +47,108 @@
                                     </g>
                                 </svg>
                             </span>
-                        @endif
-                        @include('Template::partials.social_login')
-                        <form class="account-from w-100 verify-gcaptcha" action="{{ route('user.register') }}"
-                            method="post">
-                            @csrf
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>@lang('First Name')</label>
-                                        <input class="form-control" name="firstname" type="text"
-                                            value="{{ old('firstname') }}" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>@lang('Last Name')</label>
-                                        <input class="form-control" name="lastname" type="text"
-                                            value="{{ old('lastname') }}" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>@lang('Email')</label>
-                                    <input class="form-control checkUser" name="email" type="email"
-                                        value="{{ old('email') }}" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>@lang('Password')</label>
-                                        <input type="password"
-                                            class="form-control @if (gs('secure_password')) secure-password @endif"
-                                            name="password" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>@lang('Confirm Password')</label>
-                                        <input class="form-control" name="password_confirmation" type="password" required>
-                                    </div>
-                                </div>
-                            </div>
+            @endif
 
-                            <x-captcha />
-
-                            @if (gs('agree'))
-                                @php
-                                    $policyPages = getContent('policy_pages.element', false, null, true);
-                                @endphp
-                                <div class="col-lg-12 form-group">
-                                    <div class="checkbox-wrapper d-flex align-items-center flex-wrap">
-                                        <div class="custom--checkbox">
-                                            <input class="checkbox--input" id="agree" name="agree" type="checkbox">
-                                            <label class="checkbox--label" for="agree">
-                                                @lang('I agree with')
-                                            </label>
-                                            <span>
-                                                @forelse($policyPages as $policy)
-                                                    <a class="base--color" href="{{ route('policy.pages', $policy->slug) }}"
-                                                        target="_blank">{{ __(@$policy->data_values->title) }}</a>
-                                                    {{ $loop->last ? '' : ',' }}
-                                                @empty
-                                                @endforelse
-                                            </span>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            @endif
-                            <button class="cmn-btn w-100" type="submit">@lang('Register')</button>
-                            <p class="mt-3">@lang('Already have an account?') <a class="base--color"
-                                    href="{{ route('user.login') }}">@lang('Login now')</a></p>
-                        </form>
-                    </div>
-                </div>
+            <!-- SOCIAL LOGIN -->
+            <div class="auth-social text-center mb-3">
+                @include('Template::partials.social_login')
             </div>
+
+            <!-- FORM -->
+            <form class="auth-form verify-gcaptcha" action="{{ route('user.register') }}" method="post">
+                @csrf
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <div class="icon-input">
+                                <i class="fas fa-user"></i>
+                                <input name="firstname" type="text" value="{{ old('firstname') }}" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <div class="icon-input">
+                                <i class="fas fa-user"></i>
+                                <input name="lastname" type="text" value="{{ old('lastname') }}" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <div class="icon-input">
+                                <i class="fas fa-envelope"></i>
+                                <input name="email" type="email" value="{{ old('email') }}" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Password</label>
+                            <div class="icon-input">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" name="password" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <div class="icon-input">
+                                <i class="fas fa-lock"></i>
+                                <input name="password_confirmation" type="password" required>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <x-captcha />
+
+                <!-- TERMS -->
+                @if (gs('agree'))
+                    @php
+                        $policyPages = getContent('policy_pages.element', false, null, true);
+                    @endphp
+
+                    <div class="auth-terms">
+                        <input type="checkbox" id="agree" name="agree">
+                        <label for="agree">I agree to</label>
+
+                        <span>
+                            @foreach($policyPages as $policy)
+                                <a href="{{ route('policy.pages', $policy->slug) }}" target="_blank">
+                                    {{ $policy->data_values->title }}
+                                </a>{{ !$loop->last ? ',' : '' }}
+                            @endforeach
+                        </span>
+                    </div>
+                @endif
+
+                <button class="btn-auth" type="submit">Register</button>
+
+                <p class="auth-extra">
+                    Already have an account?
+                    <a href="{{ route('user.login') }}">Login now</a>
+                </p>
+
+            </form>
+
         </div>
-    </section>
+
+    </div>
+</section>
+                   
+                              
 
     <div class="modal fade" id="existModalCenter" role="dialog" aria-labelledby="existModalCenterTitle" aria-hidden="true"
         tabindex="-1">
@@ -138,6 +180,99 @@
 
 @push('style')
     <style>
+    /* RIGHT SIDE GLASS PANEL */
+.auth-right {
+    padding: 35px;
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(20px);
+}
+
+/* FORM GRID FIX */
+.auth-form .row {
+    margin: 0 -8px;
+}
+
+.auth-form .col-md-6,
+.auth-form .col-12 {
+    padding: 0 8px;
+}
+
+/* INPUT GROUP */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    font-size: 13px;
+    color: #bbb;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* ICON INPUT */
+.icon-input {
+    position: relative;
+}
+
+.icon-input i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.icon-input input {
+    width: 100%;
+    padding: 14px 14px 14px 42px;
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+
+    color: #fff;
+}
+
+/* TERMS */
+.auth-terms {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 15px;
+}
+
+.auth-terms input {
+    accent-color: #a855f7;
+}
+
+/* BUTTON */
+.btn-auth {
+    width: 100%;
+    padding: 14px;
+    border-radius: 999px;
+
+    background: linear-gradient(135deg, #a855f7, #6366f1);
+    border: none;
+
+    color: #fff;
+    font-weight: 600;
+}
+
+/* HOVER */
+.btn-auth:hover {
+    box-shadow: 0 10px 30px rgba(168,85,247,0.6);
+    transform: translateY(-2px);
+}
+.icon-input input:focus {
+    border-color: #a855f7;
+    box-shadow: 0 0 15px rgba(168,85,247,0.4);
+}
         .form-disabled {
             overflow: hidden;
             position: relative;

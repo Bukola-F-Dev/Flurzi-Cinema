@@ -39,7 +39,7 @@
         </div>
  <!-- NEW: Center Image -->
  <div class="hero-modern-image">
- <img src="https://images.unsplash.com/photo-1608889175123-8ee362201f81?q=80&w=1200&auto=format&fit=crop" alt="anime style">
+ <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=1400&auto=format&fit=crop" alt="3D abstract">
         </div>
 
     </div>

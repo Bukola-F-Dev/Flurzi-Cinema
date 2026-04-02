@@ -84,7 +84,7 @@
     margin: auto;
     gap: 60px;
     padding: 40px;
-    margin-top:40px;
+    margin-top:120px;
     border-radius: 20px; 
     background: rgba(255,255,255,0.05); 
     border: 1px solid rgba(255,255,255,0.08); 

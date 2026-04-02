@@ -674,13 +674,13 @@
     border-radius: 50px;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(229, 9, 20, 0.3);
+   
 }
 
 .btn-primary-modern:hover {
     background: #ff1e2d;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(229, 9, 20, 0.45);
+ 
 }
 
 /* Play icon circle */

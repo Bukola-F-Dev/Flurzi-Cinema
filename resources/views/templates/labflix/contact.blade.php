@@ -184,7 +184,7 @@ margin-top: 180px;
 
 .input-modern:focus {
     border-color: #e50914;
-    box-shadow: none;
+  
 }
 
 /* LABEL */

@@ -193,7 +193,7 @@
 .icon-input input:focus {
     outline: none;
     border-color: #a855f7;
-    box-shadow: 0 0 15px rgba(168,85,247,0.4);
+ 
 }
 
 /* BUTTON */

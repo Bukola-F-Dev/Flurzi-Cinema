@@ -237,7 +237,6 @@
 
 .social-links-modern {
     display: flex;
-    justify-content: center; /* center them */
     gap: 12px;
     margin-top: 20px;
 }

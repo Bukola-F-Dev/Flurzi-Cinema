@@ -85,6 +85,11 @@
     gap: 60px;
     padding: 40px;
     margin-top:40px;
+    border-radius: 20px; 
+    background: rgba(255,255,255,0.05); 
+    border: 1px solid rgba(255,255,255,0.08); 
+    backdrop-filter: blur(20px); 
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
 }
 
 /* LEFT SIDE */

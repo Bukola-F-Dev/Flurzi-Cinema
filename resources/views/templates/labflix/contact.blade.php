@@ -45,7 +45,7 @@
                         <x-captcha />
                     </div>
 
-                    <button class="btn btn-danger w-100 btn-modern py-3 rounded-pill fw-bold">
+                    <button class="btn-auth">
                         <i class="las la-paper-plane me-2"></i>@lang('Send Message')
                     </button>
                 </form>
@@ -122,14 +122,31 @@
     grid-template-columns: 1fr 1fr;
     gap: 0;
     
-    background: rgba(255,255,255,0.03);
-    backdrop-filter: blur(10px);
-
-    border: 1px solid rgba(255,255,255,0.08); /* tiny stroke */
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(25px);
+margin-top: 180px;
     border-radius: 16px;
 
     overflow: hidden;
  
+}
+
+.btn-auth {
+    width: 100%;
+    padding: 14px;
+    border-radius: 999px;
+
+    background: linear-gradient(135deg, #a855f7, #6366f1);
+    border: none;
+
+    color: #fff;
+    font-weight: 600;
+}
+
+/* HOVER */
+.btn-auth:hover {
+       transform: translateY(-2px);
 }
 .contact-section-modern {
     margin-top: 80px; 

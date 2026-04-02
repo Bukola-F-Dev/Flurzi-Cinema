@@ -39,7 +39,7 @@
         </div>
  <!-- NEW: Center Image -->
  <div class="hero-modern-image">
- <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=1400&auto=format&fit=crop" alt="3D abstract">
+ <img src="https://i.imgur.com/8Km9tLL.png" alt="3D abstract transparent">
         </div>
 
     </div>
@@ -428,13 +428,25 @@
     z-index: 2;
     max-width: 800px;
 }
+.hero-modern-image img {
+    width: 420px;
+    max-width: 90%;
+
+    /* Blend into background */
+    mix-blend-mode: screen;
+
+    /* Glow */
+    filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.6));
+
+    animation: float 6s ease-in-out infinite;
+}
 
 /* BADGE */
 .badge-modern {
     display: inline-block;
     padding: 6px 14px;
     font-size: 12px;
-    border-radius: 999px;
+    border-radius: 10px;
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255,255,255,0.1);
     margin-bottom: 20px;
@@ -528,6 +540,7 @@
 
 .hero-modern-image img:hover {
     transform: scale(1.03);
+}
 /* SECTION */
 .section-modern {
     padding: 60px 0;
@@ -538,6 +551,15 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+}
+.hero-modern-image::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(168,85,247,0.4), transparent 70%);
+    filter: blur(60px);
+    z-index: -1;
 }
 
 .section-header-modern h2 {

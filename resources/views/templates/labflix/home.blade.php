@@ -39,7 +39,7 @@
         </div>
  <!-- NEW: Center Image -->
  <div class="hero-modern-image">
-            <img src="https://wallpapercave.com/wp/wp9428353.jpg" alt="anime group">
+ <img src="https://images.unsplash.com/photo-1608889175123-8ee362201f81?q=80&w=1200&auto=format&fit=crop" alt="anime style">
         </div>
 
     </div>

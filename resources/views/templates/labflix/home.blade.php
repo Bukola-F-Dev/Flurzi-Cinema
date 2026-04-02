@@ -39,7 +39,7 @@
         </div>
  <!-- NEW: Center Image -->
  <div class="hero-modern-image">
- <img src="https://i.imgur.com/8Km9tLL.png" alt="3D abstract transparent">
+ <img src="{{ asset('assets/images/Hero_Image.png') }}" alt="happy users">
         </div>
 
     </div>
@@ -450,6 +450,7 @@
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255,255,255,0.1);
     margin-bottom: 20px;
+    margin-top:100px;
 }
 
 /* TITLE */

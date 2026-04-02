@@ -7,37 +7,37 @@
     @endphp
 
 
-    <section class="hero" style="background: url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?q=80&w=2070') center/cover no-repeat;">
-    <div class="hero-overlay"></div>
+    <section class="hero-modern">
+    <div class="hero-modern-overlay"></div>
 
-    <div class="container hero-content">
-        <span class="badge badge-glow">Trending Now</span>
+    <div class="container hero-modern-content text-center">
 
-        <h1 class="hero-title">
+        <span class="badge-modern">Trending Now</span>
+
+        <h1 class="hero-modern-title">
             Welcome to <span>Flurzi</span>
         </h1>
 
-        <p class="hero-subtitle">
+        <p class="hero-modern-subtitle">
             Unlimited Movies, Shows, and More. Experience cinema from home.
         </p>
 
-        <div class="hero-actions">
+        <div class="hero-modern-actions">
 
-<!-- WATCH NOW -->
-<a href="#" class="btn-watch-wrap">
-    <span class="circle">
-        <i class="fas fa-play"></i>
-    </span>
-    <span class="rect">WATCH NOW</span>
-</a>
+            <!-- WATCH NOW -->
+            <a href="#" class="btn-modern primary">
+                <i class="fas fa-play"></i>
+                <span>WATCH NOW</span>
+            </a>
 
-<!-- MORE INFO -->
-<a href="#" class="btn-info-wrap">
-    <i class="las la-info-circle"></i>
-    <span>More Info</span>
-</a>
+            <!-- MORE INFO -->
+            <a href="#" class="btn-modern secondary">
+                <i class="las la-info-circle"></i>
+                <span>More Info</span>
+            </a>
 
-</div>
+        </div>
+
     </div>
 </section>
 
@@ -392,152 +392,110 @@
         .section-modern {
     margin-top: 40px;
 }
-        /* HERO */
-.hero {
+ /* Import Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.hero-modern {
     position: relative;
-    height: 85vh;
-    background: url('../images/banner.jpg') center/cover no-repeat;
+    min-height: 90vh;
     display: flex;
     align-items: center;
-    padding: 0;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    overflow: hidden;
+
+    /* Dark gradient + image blend */
+    background: radial-gradient(circle at 20% 50%, rgba(111, 0, 255, 0.4), transparent 40%),
+                radial-gradient(circle at 80% 30%, rgba(0, 102, 255, 0.3), transparent 40%),
+                linear-gradient(135deg, #05010a, #0b0120);
 }
 
-.hero-overlay {
+.hero-modern-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        to right,
-        rgba(0,0,0,0.85) 20%,
-        rgba(0,0,0,0.4) 60%,
-        transparent 100%
-    );
+    background: rgba(5, 1, 15, 0.6);
+    backdrop-filter: blur(6px);
 }
 
-.hero {
-    animation: zoomBg 20s ease-in-out infinite alternate;
-}
-
-@keyframes zoomBg {
-    from { background-size: 100%; }
-    to { background-size: 110%; }
-}
-
-.hero-content {
+/* CONTENT */
+.hero-modern-content {
     position: relative;
-    max-width: 650px;
-    color: #fff;
-    color: #fff;
-    padding-left: 0 !important; 
-}
-.container.hero-content {
-    padding-left: 5%;
+    z-index: 2;
+    max-width: 800px;
 }
 
-.hero-title {
-    font-size: 3rem;
-    font-weight: 800;
-    text-shadow: 0 5px 20px rgba(0,0,0,0.8);
+/* BADGE */
+.badge-modern {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 20px;
 }
 
-.hero-title span {
-    color: #e50914;
+/* TITLE */
+.hero-modern-title {
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 20px;
 }
 
-.hero-subtitle {
-    opacity: 0.8;
-    margin: 15px 0;
+.hero-modern-title span {
+    background: linear-gradient(90deg, #a855f7, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
-.hero-actions {
+
+/* SUBTITLE */
+.hero-modern-subtitle {
+    font-size: 16px;
+    color: #cfcfe8;
+    margin-bottom: 30px;
+}
+
+/* BUTTONS */
+.hero-modern-actions {
     display: flex;
-    gap: 0px; /* tighter */
-    margin-top: 20px;
-    padding-left: 0 !important;
-    margin-top: 20px;
-}
-
-/* FORCE SAME WIDTH */
-.hero-actions a {
-    flex: 1;
+    gap: 15px;
     justify-content: center;
-    max-width:200px;
+    flex-wrap: wrap;
 }
 
-/* =========================
-   WATCH BUTTON (CIRCLE + RECT)
-========================= */
-.btn-watch-wrap {
-    display: flex;
+.btn-modern {
+    display: inline-flex;
     align-items: center;
+    gap: 10px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
     text-decoration: none;
+    transition: 0.3s ease;
 }
 
-/* RED CIRCLE */
-.btn-watch-wrap .circle {
-    width: 60px;
-    height: 60px;
-    background: #e50914;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2; /* sits above rectangle */
+/* PRIMARY BUTTON */
+.btn-modern.primary {
+    background: #fff;
+    color: #000;
 }
 
-/* ICON */
-.btn-watch-wrap .circle i {
-    color: #fff;
-    font-size: 30px;
+.btn-modern.primary:hover {
+    background: #e5e5e5;
 }
 
-/* RECTANGLE PART */
-.btn-watch-wrap .rect {
-    height: 40px;
-    width: 170px;
-    background: #e50914;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 20px 0 20px;
-
-    /* THIS creates the "joined" look */
-    margin-left: -15px;
-
-    border-radius: 0 50px 50px 0;
-
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-}
-
-/* HOVER */
-.btn-watch-wrap:hover .circle,
-.btn-watch-wrap:hover .rect {
-    background: #ff1e2d;
-}
-
-
-/* =========================
-   MORE INFO BUTTON
-========================= */
-.btn-info-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    height: 44px;
-    padding: 0 20px;
-
-    border-radius: 50px;
-
+/* SECONDARY BUTTON */
+.btn-modern.secondary {
     background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(10px);
     color: #fff;
-
-    gap: 8px;
-    text-decoration: none;
-
     border: 1px solid rgba(255,255,255,0.15);
+}
+
+.btn-modern.secondary:hover {
+    background: rgba(255,255,255,0.15);
 }
 
 /* HOVER */

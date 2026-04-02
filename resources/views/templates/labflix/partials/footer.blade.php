@@ -16,7 +16,12 @@
             <!-- BRAND -->
             <div class="col-lg-4">
                 <div class="footer-brand">
-                    <img src="{{ siteLogo() }}" class="mb-3" style="max-height:50px;">
+                <div class="flurzi-logo mb-3">
+    <span class="logo-dot"></span>
+    <span class="logo-text">
+        FLURZI<span>CINEMA</span>
+    </span>
+</div>
 
                     <p class="footer-text">
                         {{ __(@$footer->data_values->about_us) }}
@@ -151,141 +156,156 @@
     </div>
 </div>
 
-
-@push('style')
 <style>
+.flurzi-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-dot {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #ff003c, #ff4d4d);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 0, 60, 0.7);
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.logo-text span {
+    color: #ff003c;
+    margin-left: 2px;
+}
 .footer-modern {
     position: relative;
-    background: #07070b;
-    padding-top: 80px;
-    color: #ccc;
+    background: #0b0b0f;
+    color: #aaa;
     overflow: hidden;
 }
 
-/* subtle gradient glow */
 .footer-gradient {
     position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at top, rgba(229,9,20,0.15), transparent 60%);
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: radial-gradient(circle at center, rgba(255,0,60,0.25), transparent 70%);
+    filter: blur(80px);
+    z-index: 0;
 }
 
-/* spacing */
 .footer-content {
     position: relative;
     z-index: 2;
+    padding: 80px 0;
 }
 
-/* titles */
 .footer-title {
     color: #fff;
     font-weight: 600;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
 }
 
-/* text */
 .footer-text {
-    opacity: 0.7;
-    line-height: 1.6;
-}
-
-/* links */
-.footer-links {
-    list-style: none;
-    padding: 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #bbb;
 }
 
 .footer-links li {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .footer-links a {
     color: #aaa;
-    text-decoration: none;
+    font-size: 14px;
     transition: 0.3s;
 }
 
 .footer-links a:hover {
-    color: #e50914;
-    padding-left: 5px;
-}
-
-/* social icons */
-.social-links-modern {
-    display: flex;
-    gap: 12px;
+    color: #ff003c;
+    transform: translateX(5px);
 }
 
 .social-links-modern a {
-    width: 40px;
-    height: 40px;
-    display: flex;
+    display: inline-flex;
+    width: 38px;
+    height: 38px;
     align-items: center;
     justify-content: center;
-    background: rgba(255,255,255,0.05);
+    margin-right: 8px;
     border-radius: 50%;
+    background: #1a1a22;
+    color: #fff;
     transition: 0.3s;
 }
 
 .social-links-modern a:hover {
-    background: #e50914;
-    transform: translateY(-3px);
+    background: #ff003c;
+    box-shadow: 0 0 10px rgba(255, 0, 60, 0.6);
 }
 
-/* subscribe */
 .subscribe-modern {
     display: flex;
-    margin-top: 15px;
+    background: #111;
     border-radius: 50px;
     overflow: hidden;
-    background: rgba(255,255,255,0.05);
+    border: 1px solid #222;
 }
 
 .subscribe-modern input {
     flex: 1;
-    padding: 12px 15px;
     border: none;
+    padding: 12px 15px;
     background: transparent;
     color: #fff;
 }
 
 .subscribe-modern button {
-    background: #e50914;
+    background: #ff003c;
     border: none;
-    padding: 0 20px;
+    padding: 0 18px;
     color: #fff;
+    transition: 0.3s;
 }
 
-/* apps */
-.apps img {
-    height: 40px;
-    margin-right: 10px;
+.subscribe-modern button:hover {
+    background: #ff1a4d;
 }
 
-/* bottom */
 .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.08);
-    margin-top: 50px;
+    border-top: 1px solid #1a1a22;
     padding: 20px 0;
-}
-
-.footer-bottom p {
-    margin: 0;
-    font-size: 14px;
+    font-size: 13px;
+    color: #777;
 }
 
 .footer-bottom span {
-    color: #e50914;
+    color: #ff003c;
+    font-weight: 600;
 }
 
 .footer-policies a {
     margin-left: 15px;
-    color: #aaa;
-    font-size: 14px;
-    text-decoration: none;
+    color: #777;
+    transition: 0.3s;
 }
 
 .footer-policies a:hover {
-    color: #fff;
+    color: #ff003c;
 }
-    </style>
-    @endpush
+.footer-modern:hover .footer-gradient {
+    transform: scale(1.1);
+    transition: 1.5s ease;
+}
+</style>
+
+ 

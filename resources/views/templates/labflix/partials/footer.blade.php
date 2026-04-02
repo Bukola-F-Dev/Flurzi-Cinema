@@ -76,7 +76,7 @@
                 <div class="apps mt-3">
                 @foreach ($footerElement as $item)
     <a href="{{ @$item->data_values->link }}">
-        <img src="{{ frontendImage('footer', @$item->data_values->store_image, '150x45') }}">
+        <img src="{{ frontendImage('footer', @$item->data_values->store_image, '80x40') }}">
     </a>
 @endforeach
                 </div>
@@ -267,6 +267,7 @@
     padding: 5px;
     border: 1px solid rgba(255,255,255,0.08);
     backdrop-filter: blur(10px);
+    margin-top:12px;
 }
 
 .subscribe-modern input {

@@ -162,7 +162,7 @@
         </div>
     </div> -->
 
-    <header class="header sticky-top" style="background: #0a0a0a; border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <header class="header sticky-top" style="background: #05010a; border-bottom: 1px solid rgba(255,255,255,0.05);">
     <div class="header__bottom py-3">
         <div class="container-fluid px-lg-5">
             <nav class="navbar navbar-expand-xl align-items-center p-0">

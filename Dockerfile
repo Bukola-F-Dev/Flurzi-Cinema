@@ -39,4 +39,4 @@ RUN chown -R www-data:www-data /var/www/html
 EXPOSE 8080
 
 # Start Apache
-CMD ["apache2-foreground"]
+CMD php artisan serve --host=0.0.0.0 --port=8080

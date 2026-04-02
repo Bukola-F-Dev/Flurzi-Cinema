@@ -78,7 +78,7 @@ Route::controller('SiteController')->group(function () {
     Route::get('live-game/{liveTvId}/comments', 'getLiveTournamentComments')->name('live-game.comments.get');
 
     Route::get('get/section', 'getSection')->name('get.section');
-    Route::get('/get-section', [HomeController::class, 'getSection'])->name('get.section');
+    Route::get('/get-section', [SiteController::class, 'getSection'])->name('get.section');
     Route::get('watch-video/{slug}/{episode_id?}', 'watchVideo')->name('watch');
     Route::post('video-ad/track-view', 'trackAdView')->name('video.ad.track');
 

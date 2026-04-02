@@ -84,14 +84,47 @@
     margin: auto;
     gap: 60px;
     padding: 40px;
-    margin-top:120px;
+    margin-top:180px;
     border-radius: 20px; 
     background: rgba(255,255,255,0.05); 
     border: 1px solid rgba(255,255,255,0.08); 
     backdrop-filter: blur(20px); 
     box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    margin-bottom:120px;
+}
+/* PURPLE GLOW (top-left) */
+.auth-full::before {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    top: -100px;
+    left: -100px;
+
+    background: radial-gradient(circle, rgba(168,85,247,0.4), transparent 70%);
+    filter: blur(80px);
+    z-index: 0;
 }
 
+/* BLUE GLOW (bottom-right) */
+.auth-full::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    bottom: -120px;
+    right: -120px;
+
+    background: radial-gradient(circle, rgba(99,102,241,0.35), transparent 70%);
+    filter: blur(80px);
+    z-index: 0;
+}
+
+/* Make content stay above glow */
+.auth-full > * {
+    position: relative;
+    z-index: 2;
+}
 /* LEFT SIDE */
 .auth-left {
     flex: 1;
@@ -176,7 +209,6 @@
 
 .btn-auth:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(168,85,247,0.6);
 }
 
 /* EXTRA */

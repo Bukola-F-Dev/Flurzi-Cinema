@@ -32,7 +32,7 @@ class PaymentController extends Controller
                     'product_data' => [
                         'name' => ucfirst($plan) . ' Plan',
                     ],
-                    'unit_amount' => $amount,
+                    'unit_amount' => $amounts[$plan],
                 ],
                 'quantity' => 1,
             ]],

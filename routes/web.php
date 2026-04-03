@@ -4,12 +4,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\WebhookController;
 
+
 Route::post('pusher/auth/{socketId}/{channelName}', 'SiteController@pusher')->name('pusher');
 
 Route::get('/clear', function () {
     \Illuminate\Support\Facades\Artisan::call('optimize:clear');
 });
 Route::post('/stripe/webhook', [WebhookController::class, 'handle']);
+Route::post('/stripe/webhook', [PaymentController::class, 'webhook']);
+Route::get('/payment/success/{plan}', [PaymentController::class, 'success'])
+    ->name('payment.success');
 
 // User Support Ticket
 Route::controller('TicketController')->prefix('ticket')->name('ticket.')->group(function () {
@@ -49,6 +53,9 @@ Route::controller('SiteController')->name('wishlist.')->prefix('wishlist')->grou
 Route::middleware(['auth'])->group(function () {
     Route::get('/subscription', [SubscriptionController::class, 'index'])->name('subscription');
     Route::get('/subscribe/{plan}', [SubscriptionController::class, 'subscribe'])->name('subscribe.plan');
+    Route::get('/subscription', function () {
+        return view('subscription');
+    })->name('subscription');
     Route::get('/pay/{plan}', [PaymentController::class, 'initialize'])->name('pay');
     Route::get('/payment/callback/{plan}', [PaymentController::class, 'callback'])->name('payment.callback');
 });

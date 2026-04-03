@@ -26,21 +26,23 @@ class PaymentController extends Controller
 
         $session = Session::create([
             'payment_method_types' => ['card'],
-            'customer_email' => $user->email,
-
             'line_items' => [[
                 'price_data' => [
-                    'currency' => 'usd', // or 'ngn' if enabled
+                    'currency' => 'gbp',
                     'product_data' => [
                         'name' => ucfirst($plan) . ' Plan',
                     ],
-                    'unit_amount' => $amounts[$plan] * 100,
+                    'unit_amount' => $amount,
                 ],
                 'quantity' => 1,
             ]],
-
             'mode' => 'payment',
-
+        
+            'metadata' => [
+                'user_id' => auth()->id(),
+                'plan' => $plan,
+            ],
+        
             'success_url' => route('payment.success', ['plan' => $plan]) . '?session_id={CHECKOUT_SESSION_ID}',
             'cancel_url' => route('subscription'),
         ]);
@@ -48,7 +50,7 @@ class PaymentController extends Controller
         return redirect($session->url);
     }
 
-    public function success(Request $request, $plan)
+   /* public function success(Request $request, $plan)
     {
         Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
 
@@ -72,7 +74,57 @@ class PaymentController extends Controller
         );
 
         return redirect('/')->with('success', 'Subscription activated 🎉');
+    } */
+    public function success(Request $request, $plan)
+{
+    return redirect('/')
+        ->with('success', 'Payment received! Your subscription will be activated shortly.');
+}
+
+    public function webhook(Request $request)
+{
+    $payload = $request->getContent();
+    $sig_header = $request->header('Stripe-Signature');
+    $endpoint_secret = env('STRIPE_WEBHOOK_SECRET');
+
+    try {
+        $event = \Stripe\Webhook::constructEvent(
+            $payload, $sig_header, $endpoint_secret
+        );
+    } catch (\Exception $e) {
+        return response('Invalid', 400);
     }
+
+    if ($event->type === 'checkout.session.completed') {
+        $session = $event->data->object;
+
+        $userId = $session->metadata->user_id;
+        $plan = $session->metadata->plan;
+
+        $user = \App\Models\User::find($userId);
+
+        if ($user) {
+            Subscription::updateOrCreate(
+                ['user_id' => $user->id],
+                [
+                    'plan' => $plan,
+                    'amount' => $session->amount_total / 100,
+                    'starts_at' => now(),
+                    'expires_at' => now()->addMonth(),
+                    'status' => 'active',
+                ]
+            );
+
+            \Log::info('Stripe payment success', [
+                'user_id' => $userId,
+                'plan' => $plan,
+                'session_id' => $session->id
+            ]);
+        }
+    }
+
+    return response('Success', 200);
+}
 }
 
 /* {

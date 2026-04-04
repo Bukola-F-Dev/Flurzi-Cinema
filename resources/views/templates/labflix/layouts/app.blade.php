@@ -26,7 +26,7 @@
     <link href="{{ asset(activeTemplate(true) . 'css/main.css') }}" rel="stylesheet">
     <link href="{{ asset(activeTemplate(true) . 'css/custom.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/cinema-style.css') }}">
-    <link rel="icon" href="{{ asset('assets/images/favicon.png') }}">
+    <link rel="icon" href="{{ asset('assets/images/favicon.png') }}" sizes="18x18">
 
     @stack('style')
 

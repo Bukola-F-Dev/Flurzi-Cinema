@@ -2,7 +2,7 @@
 @section('content')
  
              <section class="profile-setup">
-    <div class="container">
+    <div class="container-fluid px-4 px-lg-5">
         <div class="row justify-content-center align-items-center min-vh-100">
 
             <div class="col-12 col-lg-10 col-xl-8">
@@ -183,9 +183,15 @@ html, body {
 }
 .profile-setup {
     min-height: 100vh;
-    background: radial-gradient(circle at top left, #0f172a, #020617 60%, #000);
+    padding: 60px 40px;
     display: flex;
     align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(124,58,237,0.25), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(79,70,229,0.2), transparent 40%),
+        linear-gradient(135deg, #020617, #0f172a 60%, #000);
 }
 
 /* MAIN CONTAINER */
@@ -198,6 +204,7 @@ html, body {
     border-radius: 22px;
     overflow: hidden;
     box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+
 }
 
 /* LEFT PANEL */

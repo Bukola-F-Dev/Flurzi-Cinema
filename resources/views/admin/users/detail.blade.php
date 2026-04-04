@@ -9,19 +9,35 @@
                     <x-widget style="7" link="{{ route('admin.deposit.list') }}?search={{ $user->username }}" title="Total Payments" icon="las la-wallet" value="{{ showAmount($totalDeposit) }}" bg="indigo" type="2" />
                 </div>
 
-                <div class="col-xxl-4 col-sm-6">
-                    <x-widget style="7" link="javascript:void(0)" title="Current Plan" icon="las la-tree" value="{{ __($activePlan) }}" bg="8" type="2" />
-                </div>
-
-                <div class="col-xxl-4 col-sm-6">
-                    <x-widget style="7" link="javascript:void(0)" title="Expired Date" icon="la la-calendar" value="{{ $expiredDate }}" bg="6" type="2" />
-                </div>
+               
             </div>
+
+            <div class="col-xxl-4 col-sm-6">
+    <div class="glass-card stat-card">
+        <div class="stat-icon">
+            <i class="las la-wallet"></i>
+        </div>
+        <div>
+            <div class="text-muted small">Total Payments</div>
+            <h5 class="text-white mb-0">{{ showAmount($totalDeposit) }}</h5>
+        </div>
+
+        <div>
+            <div class="text-muted small">Current Plan</div>
+            <h5 class="text-white mb-0">{{ __($activePlan) }}</h5>
+        </div>
+
+        <div>
+            <div class="text-muted small">Expired Date</div>
+            <h5 class="text-white mb-0">{{ $expiredDate }}</h5>
+        </div>
+    </div>
+</div>
 
             <div class="d-flex flex-wrap gap-3 mt-4">
 
                 <div class="flex-fill">
-                    <a href="{{ route('admin.report.login.history') }}?search={{ $user->username }}" class="btn btn--primary btn--shadow w-100 btn-lg">
+                    <a href="{{ route('admin.report.login.history') }}?search={{ $user->username }}" class="btn btn-modern w-100 btn-lg">
                         <i class="las la-list-alt"></i>@lang('Logins')
                     </a>
                 </div>
@@ -54,9 +70,9 @@
             </div>
 
 
-            <div class="card mt-30">
+            <div class="glass-card mt-4 p-4">
                 <div class="card-header">
-                    <h5 class="card-title mb-0">@lang('Information of') {{ $user->fullname }}</h5>
+                <h5 class="section-title mb-3">@lang('Information of') {{ $user->fullname }}</h5>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('admin.users.update', [$user->id]) }}" method="POST"
@@ -211,6 +227,101 @@
     <a href="{{ route('admin.users.login', $user->id) }}" target="_blank" class="btn btn--sm btn-outline--primary"><i class="las la-sign-in-alt"></i>@lang('Login as User')</a>
 @endpush
 
+
+<style>
+/* 🌌 Background Enhancement */
+body {
+    background: radial-gradient(circle at top left, #0f172a, #020617);
+}
+
+/* ✨ Glass Cards */
+.glass-card {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+
+/* 💎 Stat Cards */
+.stat-card {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #fff;
+}
+.form-group {
+    margin-bottom: 18px;
+}
+/* 🔘 Buttons */
+.btn-modern {
+    border-radius: 12px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.25s ease;
+}
+
+.btn-modern:hover {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* 🧾 Form */
+.form-control {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #fff;
+    border-radius: 10px;
+}
+
+.form-control:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 2px rgba(99,102,241,0.3);
+}
+
+/* Labels */
+label {
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Modal Glass */
+.modal-content {
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(12px);
+    border-radius: 14px;
+}
+</style>
 @push('script')
     <script>
         (function($) {

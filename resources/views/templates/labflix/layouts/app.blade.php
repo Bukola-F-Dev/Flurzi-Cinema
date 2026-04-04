@@ -5,9 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ gs()->siteName(__($pageTitle)) }}</title>
+  <!--  <title>{{ gs()->siteName(__($pageTitle)) }}</title> -->
+  <title>Flurzi Cinema</title>
     @include('partials.seo')
-    <link type="image/png" href="{{ siteFavicon() }}" rel="icon" sizes="16x16">
+   <!-- <link type="image/png" href="{{ siteFavicon() }}" rel="icon" sizes="16x16"> -->
     <link href="{{ asset('assets/global/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/global/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/global/css/line-awesome.min.css') }}" rel="stylesheet">

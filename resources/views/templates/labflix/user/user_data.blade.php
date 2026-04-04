@@ -2,7 +2,7 @@
 @section('content')
  
              <section class="profile-setup">
-    <div class="container-fluid px-4 px-lg-5">
+    <div class="container">
         <div class="row justify-content-center align-items-center min-vh-100">
 
             <div class="col-12 col-lg-10 col-xl-8">
@@ -32,7 +32,7 @@
                                     <label>Username</label>
                                     <input type="text" name="username" 
                                         value="{{ old('username') }}" class="form-control form--control checkUser" required>
-                                    <small class="text--danger usernameExist"></small>
+                                    <small class="usernameExist"></small>
                                 </div>
 
 
@@ -61,7 +61,7 @@
                                             <input type="number" name="mobile" class="form-control form--control checkUser"  id="mobile" name="mobile"
                                             value="{{ old('mobile') }}" required>
                                         </div>
-                                        <small class="text-danger mobileExist"></small>
+                                        <small class=" mobileExist"></small>
                                     </div>
 
                                 </div>
@@ -183,32 +183,26 @@ html, body {
 }
 .profile-setup {
     min-height: 100vh;
-    padding: 60px 40px;
+    background: radial-gradient(circle at top left, #0f172a, #020617 60%, #000);
     display: flex;
     align-items: center;
-    justify-content: center;
-
-    background:
-        radial-gradient(circle at 20% 20%, rgba(124,58,237,0.25), transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(79,70,229,0.2), transparent 40%),
-        linear-gradient(135deg, #020617, #0f172a 60%, #000);
+        margin-top:180px;
+    margin-bottom:120px;
 }
 
 /* MAIN CONTAINER */
 .setup-wrapper {
-    width: 100%;
-    max-width: 1200px;  
-    margin: auto;
     display: grid;
-    grid-template-columns: 1.1fr 1.4fr;
-    background: rgba(255,255,255,0.06);
-    backdrop-filter: blur(25px);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 24px;
+    grid-template-columns: 1fr 1.2fr;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 22px;
     overflow: hidden;
-    box-shadow: 0 40px 120px rgba(0,0,0,0.8);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
 
-} 
+}
+
 /* LEFT PANEL */
 .setup-visual {
     padding: 60px;
@@ -220,7 +214,7 @@ html, body {
 
 /* RIGHT PANEL */
 .setup-form {
-    padding: 50px;
+    padding: 40px;
 }
 
 /* GRID */
@@ -229,27 +223,11 @@ html, body {
     flex-direction: column;
     gap: 16px;
 }
-.form--control {
-    padding: 14px 16px;  /* bigger inputs */
- 
-}.field-group {
+
+.field-group {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
-}
-
-/* FIX SELECT2 HEIGHT */
-.select2-container .select2-selection--single {
-    height: 50px !important;
-    display: flex;
-    align-items: center;
-    border-radius: 12px !important;
-    background: rgba(255,255,255,0.05);
-}
-
-/* MATCH INPUT HEIGHT */
-.form--control {
-    height: 50px;
+    gap: 12px;
 }
 
 .field.full {
@@ -331,13 +309,14 @@ html, body {
         border: 1px solid rgba(255, 255, 255, 0.12) !important;
         color: #fff !important;
         border-radius: 12px;
+        padding: 12px 14px;
         transition: all 0.25s ease;
     }
 
     .form--control:focus {
         background: rgba(255, 255, 255, 0.08) !important;
         border-color: #7c3aed !important;
-      
+        box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.25);
     }
 
     .form-label {

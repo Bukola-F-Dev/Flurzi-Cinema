@@ -1,99 +1,89 @@
 @extends('Template::layouts.frontend')
 @section('content')
-
-<section class="my-80">
+ 
+             <section class="profile-setup">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-7 col-xl-5">
+        <div class="row justify-content-center align-items-center min-vh-100">
 
-                <div class="card custom--card">
+            <div class="col-12 col-lg-10 col-xl-8">
 
-                    <div class="card-header text-center">
-                        <h5 class="card-title">@lang('Complete Your Profile')</h5>
+                <div class="setup-wrapper">
+
+                    <!-- LEFT SIDE (visual panel) -->
+                    <div class="setup-visual d-none d-lg-flex">
+                        <div>
+                            <h2>Complete your profile</h2>
+                            <p>Let’s personalize your Flurzi Cinema experience.</p>
+                        </div>
                     </div>
 
-                    <div class="card-body p-4">
+                    <!-- RIGHT SIDE (FORM) -->
+                    <div class="setup-form">
+
+                        <h4 class="mb-4">@lang('Complete Your Profile')</h4>
 
                         <form method="POST" action="{{ route('user.data.submit') }}">
                             @csrf
 
-                            <div class="row g-3">
+                            <div class="form-grid">
 
                                 <!-- Username -->
-                                <div class="col-12">
-                                    <label class="form-label">@lang('Username')</label>
-                                    <input type="text" class="form-control form--control checkUser"
-                                        name="username" value="{{ old('username') }}" required>
+                                <div class="field full">
+                                    <label>Username</label>
+                                    <input type="text" name="username" 
+                                        value="{{ old('username') }}" class="form-control form--control checkUser" required>
                                     <small class="text--danger usernameExist"></small>
                                 </div>
 
-                                <!-- Country -->
-                                <div class="col-lg-6">
-                                    <label class="form-label">@lang('Country')</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="las la-globe"></i></span>
-                                        <select class="form-control form--control select2" id="country"
-                                            name="country" required>
+
+                                <!-- Country + Mobile (FIXED) -->
+                                <div class="field-group">
+
+                                    <div class="field">
+                                        <label>@lang('Country')</label>
+                                        <select class="form-control form--control select2" id="country" name="country" required>
                                             @foreach ($countries as $key => $country)
-                                                <option class="text-dark"
-                                                    data-mobile_code="{{ $country->dial_code }}"
-                                                    data-code="{{ $key }}"
-                                                    value="{{ $country->country }}">
+                                                <option data-mobile_code="{{ $country->dial_code }}"
+                                                data-code="{{ $key }}"
+                                                        value="{{ $country->country }}">
                                                     {{ __($country->country) }}
                                                 </option>
                                             @endforeach
                                         </select>
                                     </div>
-                                </div>
 
-                                <!-- Mobile -->
-                                <div class="col-lg-6">
-                                    <label class="form-label">@lang('Mobile')</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text mobile-code bg--base"></span>
+                                    <div class="field">
+                                        <label>Mobile</label>
+                                        <div class="phone-group">
+                                            <span class="code mobile-code"> 
                                         <input name="mobile_code" type="hidden">
-                                        <input name="country_code" type="hidden">
-                                        <input class="form-control form--control checkUser"
-                                            id="mobile" name="mobile" type="number"
+                                        <input name="country_code" type="hidden"></span>
+                                            <input type="number" name="mobile" class="form-control form--control checkUser"  id="mobile" name="mobile"
                                             value="{{ old('mobile') }}" required>
+                                        </div>
+                                        <small class="text-danger mobileExist"></small>
                                     </div>
-                                    <small class="text-danger mobileExist"></small>
+
                                 </div>
 
-                                <!-- Address -->
-                                <div class="col-sm-6">
-                                    <label class="form-label">@lang('Address')</label>
-                                    <input type="text" class="form-control form--control"
-                                        name="address" value="{{ old('address') }}">
+                                <!-- Address Row -->
+                                <div class="field-group">
+                                    <div class="field"><label>Address</label><input class="form-control form--control" type="text"  
+                                        name="address" value="{{ old('address') }}"></div>
+                                    <div class="field"><label>State</label><input class="form-control form--control" type="text"  
+                                        name="state" value="{{ old('state') }}"></div>
                                 </div>
 
-                                <!-- State -->
-                                <div class="col-sm-6">
-                                    <label class="form-label">@lang('State')</label>
-                                    <input type="text" class="form-control form--control"
-                                        name="state" value="{{ old('state') }}">
-                                </div>
-
-                                <!-- Zip -->
-                                <div class="col-sm-6">
-                                    <label class="form-label">@lang('Zip Code')</label>
-                                    <input type="text" class="form-control form--control"
-                                        name="zip" value="{{ old('zip') }}">
-                                </div>
-
-                                <!-- City -->
-                                <div class="col-sm-6">
-                                    <label class="form-label">@lang('City')</label>
-                                    <input type="text" class="form-control form--control"
-                                        name="city" value="{{ old('city') }}">
+                                <div class="field-group">
+                                    <div class="field"><label>City</label><input class="form-control form--control" type="text" name="city" value="{{ old('city') }}"></div>
+                                    <div class="field"><label>Zip</label><input class="form-control form--control" type="text"  
+                                        name="zip" value="{{ old('zip') }}"></div>
                                 </div>
 
                                 <!-- Submit -->
-                                <div class="col-12 mt-2">
-                                    <button type="submit" class="btn btn--base w-100">
-                                        @lang('Submit')
-                                    </button>
-                                </div>
+                                <button type="submit" class="btn-modern w-100 mt-3">
+                                @lang('Submit')
+                                </button>
 
                             </div>
                         </form>
@@ -190,6 +180,86 @@ html, body {
     font-family: 'Poppins', sans-serif;
     background: radial-gradient(circle at top left, #0f172a, #020617 60%, #000000) !important;
         color: #fff;
+}
+.profile-setup {
+    min-height: 100vh;
+    background: radial-gradient(circle at top left, #0f172a, #020617 60%, #000);
+    display: flex;
+    align-items: center;
+}
+
+/* MAIN CONTAINER */
+.setup-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+
+/* LEFT PANEL */
+.setup-visual {
+    padding: 60px;
+    background: linear-gradient(135deg, rgba(124,58,237,0.25), rgba(79,70,229,0.15));
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+/* RIGHT PANEL */
+.setup-form {
+    padding: 40px;
+}
+
+/* GRID */
+.form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.field-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.field.full {
+    grid-column: span 2;
+}
+
+/* PHONE GROUP FIX */
+.phone-group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.phone-group .code {
+    padding: 12px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    min-width: 70px;
+    text-align: center;
+}
+
+/* BUTTON */
+.btn-modern {
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    border: none;
+    padding: 14px;
+    border-radius: 14px;
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-modern:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(124,58,237,0.35);
 }
         .country__select {
             .select2-container--default .select2-selection--single {

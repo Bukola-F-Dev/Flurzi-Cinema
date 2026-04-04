@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <div class="card custom--card">
+                  
 
 
                     <div class="glass-card">
@@ -117,38 +117,50 @@
 
 </form>
 
-</div>
-                    </div>
+</div> 
                 </div>
             </div>
         </div>
     </section>
-@endsection
 
 
+    
 <style>
 /* 🌐 Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-body {
+html, body {
+    background: radial-gradient(circle at top, #0f172a, #020617) !important;
+    min-height: 100vh;
     font-family: 'Poppins', sans-serif;
-    background: radial-gradient(circle at top, #0f172a, #020617);
 }
 
 /* 🌌 Section spacing */
 .my-80 {
     padding: 80px 0;
 }
+.glass-card {
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+}
 
 /* ✨ Glass Card */
 .glass-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    background: rgba(255, 255, 255, 0.06) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 10px 50px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 25px 70px rgba(0,0,0,0.7);
     padding: 35px;
+}
+.card.custom--card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
 /* 👤 Profile Image */
@@ -235,3 +247,5 @@ body {
     padding-left: 35px;
 }
 </style>
+@endsection
+

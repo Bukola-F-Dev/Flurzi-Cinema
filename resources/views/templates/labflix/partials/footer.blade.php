@@ -46,16 +46,28 @@
                     @endforeach
                 </ul>
             </div>
-
-            <!-- CATEGORIES -->
-            <div class="col-lg-2 col-6">
-                <h6 class="footer-title">Categories</h6>
-                <ul class="footer-links">
-                    @foreach ($categories as $category)
-                        <li><a href="{{ route('category', $category->id) }}">{{ $category->name }}</a></li>
-                    @endforeach
-                </ul>
-            </div>
+<!-- CATEGORIES -->
+<div class="col-lg-2 col-6">
+    <h6 class="footer-title">Categories</h6>
+    <ul class="footer-links">
+        @if($categories && count($categories) > 0)
+            @foreach ($categories as $category)
+                <li>
+                    <a href="{{ route('category', $category->id) }}">
+                        {{ $category->name }}
+                    </a>
+                </li>
+            @endforeach
+        @else
+            <!-- Default fallback links -->
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Drama</a></li>
+            <li><a href="#">Comedy</a></li>
+            <li><a href="#">Horror</a></li>
+            <li><a href="#">Romance</a></li>
+        @endif
+    </ul>
+</div>
 
             <!-- SUBSCRIBE -->
             <div class="col-lg-4">
@@ -359,6 +371,60 @@
 
 .apps a:hover {
     transform: translateY(-3px) scale(1.05);
+}
+/* Footer links styling */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Hover effect */
+.footer-links a:hover {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+/* Add subtle arrow before each link */
+.footer-links a::before {
+    content: "›";
+    margin-right: 8px;
+    color: #ff4c4c; /* accent color */
+    transition: 0.3s;
+}
+
+.footer-links a:hover::before {
+    margin-right: 12px;
+}
+
+/* Footer title styling */
+.footer-title {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/* Underline effect for title */
+.footer-title::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: #ff4c4c;
+    margin-top: 6px;
 }
 </style>
 

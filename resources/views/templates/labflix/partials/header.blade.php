@@ -218,7 +218,7 @@
    href="javascript:void(0)"
    role="button"
    data-bs-toggle="dropdown">
-   @lang('More') <i class="las la-angle-down small"></i>
+   @lang('More')  <i class="las la-user-circle fs-5 me-1"></i>
 </a>
                                 <ul class="dropdown-menu border-0 shadow-lg animate slideIn bg-dark mt-2 p-2" style="border-radius: 10px; border: 1px solid rgba(255,255,255,0.1) !important;">
                                     <li><a class="dropdown-item py-2 text-white-50" href="{{ route('user.deposit.history') }}">@lang('Payment History')</a></li>

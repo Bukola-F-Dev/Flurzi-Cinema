@@ -82,7 +82,7 @@
         </div>
 
         <!-- Zip -->
-        <div class="col-sm-3">
+        <div class="col-sm-5">
             <label class="form-label">@lang('Zip Code')</label>
             <div class="input-group-modern">
                 <i class="las la-mail-bulk"></i>
@@ -91,7 +91,7 @@
         </div>
 
         <!-- City -->
-        <div class="col-sm-3">
+        <div class="col-sm-5">
             <label class="form-label">@lang('City')</label>
             <div class="input-group-modern">
                 <i class="las la-city"></i>
@@ -100,7 +100,7 @@
         </div>
 
         <!-- Country -->
-        <div class="col-sm-3">
+        <div class="col-sm-5">
             <label class="form-label">@lang('Country')</label>
             <div class="input-group-modern">
                 <i class="las la-globe"></i>

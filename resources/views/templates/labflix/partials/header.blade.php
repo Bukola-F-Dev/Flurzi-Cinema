@@ -213,27 +213,33 @@
                         @guest
                             <li class="nav-item"><a class="nav-link fw-semibold nav-hover-link text-white" href="{{ route('contact') }}">@lang('Contact')</a></li>
                         @else
-                            <li class="nav-item dropdown">
-                            <a class="nav-link nav-hover-link fw-semibold text-white dropdown-toggle nav-dropdown-link"
-   href="javascript:void(0)"
-   role="button"
-   data-bs-toggle="dropdown">
-   @lang('More')  <i class="las la-user-circle fs-5 me-1"></i>
-</a>
-                                <ul class="dropdown-menu border-0 shadow-lg animate slideIn bg-dark mt-2 p-2" style="border-radius: 10px; border: 1px solid rgba(255,255,255,0.1) !important;">
-                                    <li><a class="dropdown-item py-2 text-white-50" href="{{ route('user.deposit.history') }}">@lang('Payment History')</a></li>
-                                    <li><a class="dropdown-item py-2 text-white-50" href="{{ route('user.wishlist.index') }}">@lang('My Wishlist')</a></li>
-                                    <li><a class="dropdown-item py-2 text-white-50" href="{{ route('user.watch.history') }}">@lang('Watch History')</a></li>
-                                    @if (gs('watch_party'))
-                                        <li><a class="dropdown-item py-2 text-white-50" href="{{ route('user.watch.party.history') }}">@lang('Watch Party')</a></li>
-                                    @endif
-                                    <li><a class="dropdown-item py-2 text-white-50" href="{{ route('user.rented.item') }}">@lang('Rented Item')</a></li>
-                                    <li><a class="dropdown-item py-2 text-white-50" href="{{ route('short.videos', [0, 'favorite']) }}">@lang('My Reel List')</a></li>
-                                    @if (gs('request_item'))
-                                        <li><a class="dropdown-item py-2 text-white-50" href="{{ route('user.request.item.index') }}">@lang('Request Items')</a></li>
-                                    @endif
-                                </ul>
-                            </li>
+                        <li class="nav-item dropdown">
+    <a class="nav-link nav-hover-link fw-semibold text-white dropdown-toggle nav-dropdown-link"
+       href="#"
+       role="button"
+       data-bs-toggle="dropdown">
+        @lang('More')
+    </a>
+
+    <ul class="dropdown-menu border-0 shadow-lg animate slideIn bg-dark mt-2 p-2"
+        style="border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);">
+        
+        <li><a class="dropdown-item py-2 text-white-50" href="{{ route('user.deposit.history') }}">@lang('Payment History')</a></li>
+        <li><a class="dropdown-item py-2 text-white-50" href="{{ route('user.wishlist.index') }}">@lang('My Wishlist')</a></li>
+        <li><a class="dropdown-item py-2 text-white-50" href="{{ route('user.watch.history') }}">@lang('Watch History')</a></li>
+
+        @if (gs('watch_party'))
+            <li><a class="dropdown-item py-2 text-white-50" href="{{ route('user.watch.party.history') }}">@lang('Watch Party')</a></li>
+        @endif
+
+        <li><a class="dropdown-item py-2 text-white-50" href="{{ route('user.rented.item') }}">@lang('Rented Item')</a></li>
+        <li><a class="dropdown-item py-2 text-white-50" href="{{ route('short.videos', [0, 'favorite']) }}">@lang('My Reel List')</a></li>
+
+        @if (gs('request_item'))
+            <li><a class="dropdown-item py-2 text-white-50" href="{{ route('user.request.item.index') }}">@lang('Request Items')</a></li>
+        @endif
+    </ul>
+</li>
                         @endguest
                     </ul>
 

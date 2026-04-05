@@ -214,7 +214,12 @@
                             <li class="nav-item"><a class="nav-link fw-semibold nav-hover-link text-white" href="{{ route('contact') }}">@lang('Contact')</a></li>
                         @else
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle fw-semibold nav-hover-link text-white" href="javascript:void(0)" role="button" data-bs-toggle="dropdown">@lang('More') <i class="las la-angle-down small"></i></a>
+                            <a class="nav-link nav-hover-link fw-semibold text-white dropdown-toggle nav-dropdown-link"
+   href="javascript:void(0)"
+   role="button"
+   data-bs-toggle="dropdown">
+   @lang('More') <i class="las la-angle-down small"></i>
+</a>
                                 <ul class="dropdown-menu border-0 shadow-lg animate slideIn bg-dark mt-2 p-2" style="border-radius: 10px; border: 1px solid rgba(255,255,255,0.1) !important;">
                                     <li><a class="dropdown-item py-2 text-white-50" href="{{ route('user.deposit.history') }}">@lang('Payment History')</a></li>
                                     <li><a class="dropdown-item py-2 text-white-50" href="{{ route('user.wishlist.index') }}">@lang('My Wishlist')</a></li>
@@ -247,9 +252,11 @@
                             </div>
                         @else
                             <div class="dropdown">
-                                <button class="btn btn-sm btn-outline-light dropdown-toggle rounded-pill px-3" data-bs-toggle="dropdown">
-                                    <i class="las la-user-circle fs-5 me-1"></i> {{ __(auth()->user()->username ?? 'Dashboard') }}
-                                </button>
+                            <button class="nav-user-btn dropdown-toggle"
+        data-bs-toggle="dropdown">
+    <i class="las la-user-circle fs-5 me-1"></i>
+    {{ __(auth()->user()->username ?? 'Dashboard') }}
+</button>
                                 <div class="dropdown-menu dropdown-menu-end border-0 shadow-lg bg-dark mt-2 p-2" style="border-radius: 10px; border: 1px solid rgba(255,255,255,0.1) !important;">
                                     <a class="dropdown-item d-flex align-items-center gap-2 text-white-50" href="{{ route('user.profile.setting') }}"><i class="las la-user-circle fs-5"></i> @lang('Profile')</a>
                                     <a class="dropdown-item d-flex align-items-center gap-2 text-white-50" href="{{ route('ticket.index') }}"><i class="las la-list fs-5"></i> @lang('Tickets')</a>
@@ -320,6 +327,18 @@
         transition: all 0.3s ease;
         transform: translateX(-50%);
     }
+
+    .nav-dropdown-link {
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-dropdown-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff !important;
+    opacity: 1;
+}
     .nav-hover-link:hover::after {
         width: 80%;
     }
@@ -327,6 +346,46 @@
         opacity: 1 !important;
         color: #fff !important;
     }
+
+    .nav-user-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    font-weight: 600;
+    font-size: 0.85rem;
+
+    transition: all 0.3s ease;
+}
+
+.nav-user-btn:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.3);
+    transform: translateY(-1px);
+}
+
+.dropdown-menu {
+    background: rgba(10, 10, 20, 0.95) !important;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+.dropdown-item {
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background: rgba(255,255,255,0.06) !important;
+    color: #fff !important;
+    transform: translateX(3px);
+}
     /* Bordered Search Box */
     .search-box-bordered {
         width: 42px;

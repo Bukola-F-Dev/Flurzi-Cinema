@@ -187,7 +187,9 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #020617;
+    background: radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.25), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.2), transparent 40%),
+                linear-gradient(135deg, #020617, #0f172a);
 }
 
 /* SECTION BACKGROUND */
@@ -198,9 +200,6 @@ body {
     padding: 80px 0;
 margin-top:180px;
     /* Deep cinematic gradient */
-    background: radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.25), transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.2), transparent 40%),
-                linear-gradient(135deg, #020617, #0f172a);
 }
 .phone-input {
     display: flex;
@@ -221,14 +220,11 @@ margin-top:180px;
     display: flex;
     border-radius: 24px;
     overflow: hidden;
-
     /* GLASS EFFECT */
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
-
     border: 1px solid rgba(255, 255, 255, 0.08);
-
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
 }
 .phone-group.field {
@@ -240,10 +236,8 @@ margin-top:180px;
     flex: 1;
     padding: 60px;
     color: #fff;
-
     display: flex;
     align-items: center;
-
     background: linear-gradient(160deg, #1e1b4b, #0f172a);
     position: relative;
 }
@@ -353,7 +347,6 @@ select.form--control {
 /* PHONE GROUP */
 .phone-group {
     display: flex;
-    align-items: center;
     width: 100%;
 }
 

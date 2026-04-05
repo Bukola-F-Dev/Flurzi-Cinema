@@ -185,11 +185,9 @@
 /* IMPORT FONT */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-body {
+body,html{
     font-family: 'Poppins', sans-serif;
-    background: radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.25), transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.2), transparent 40%),
-                linear-gradient(135deg, #020617, #0f172a);
+    background: #0f172a;
 }
 
 /* SECTION BACKGROUND */
@@ -200,6 +198,9 @@ body {
     padding: 80px 0;
 margin-top:180px;
     /* Deep cinematic gradient */
+    background: radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.25), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.2), transparent 40%),
+                linear-gradient(135deg, #020617, #0f172a);
 }
 .phone-input {
     display: flex;

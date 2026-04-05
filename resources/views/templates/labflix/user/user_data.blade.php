@@ -35,36 +35,46 @@
                                     <small class="usernameExist"></small>
                                 </div>
 
-
-                                <!-- Country + Mobile (FIXED) -->
                                 <div class="field-group">
+    <div class="field">
+        <label>@lang('Country')</label>
+        <select class="form-control form--control select2" id="country" name="country" required>
+            @foreach ($countries as $key => $country)
+                <option 
+                    data-mobile_code="{{ $country->dial_code }}"
+                    data-code="{{ $key }}"
+                    value="{{ $country->country }}">
+                    {{ __($country->country) }}
+                </option>
+            @endforeach
+        </select>
+    </div>
+</div>
 
-                                    <div class="field">
-                                        <label>@lang('Country')</label>
-                                        <select class="form-control form--control select2" id="country" name="country" required>
-                                            @foreach ($countries as $key => $country)
-                                                <option data-mobile_code="{{ $country->dial_code }}"
-                                                data-code="{{ $key }}"
-                                                        value="{{ $country->country }}">
-                                                    {{ __($country->country) }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+ 
+<div class="field full phone-group">
+    <label>Mobile</label>
 
-                                    <div class="field">
-                                        <label>Mobile</label>
-                                        <div class="phone-group">
-                                            <span class="code mobile-code"> 
-                                        <input name="mobile_code" type="hidden">
-                                        <input name="country_code" type="hidden"></span>
-                                            <input type="number" name="mobile" class="form-control form--control checkUser"  id="mobile" name="mobile"
-                                            value="{{ old('mobile') }}" required>
-                                        </div>
-                                        <small class=" mobileExist"></small>
-                                    </div>
+    <div class="phone-input">
+        <span class="code mobile-code"></span>
 
-                                </div>
+        <input type="hidden" name="mobile_code">
+        <input type="hidden" name="country_code">
+
+        <input 
+            type="number"
+            name="mobile"
+            class="form-control form--control checkUser"
+            id="mobile"
+            value="{{ old('mobile') }}"
+            required
+        >
+    </div>
+
+    <small class="mobileExist"></small>
+</div>
+
+                             
 
                                 <!-- Address Row -->
                                 <div class="field-group">
@@ -192,6 +202,19 @@ body {
                 radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.2), transparent 40%),
                 linear-gradient(135deg, #020617, #0f172a);
 }
+.phone-input {
+    display: flex;
+    align-items: center;
+}
+.phone-input .code {
+    padding: 0 12px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px 0 0 12px;
+}
+
 
 /* MAIN WRAPPER */
 .setup-wrapper {
@@ -207,6 +230,9 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.08);
 
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+.phone-group.field {
+    width: 100%;
 }
 
 /* LEFT PANEL */
@@ -264,6 +290,7 @@ body {
 .field-group {
     display: flex;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
 .field-group .field {
@@ -310,11 +337,15 @@ body {
 select.form--control {
     appearance: none;
 }
+.field-group .phone-group {
+    flex: 0 0 100%;
+}
 
 /* PHONE GROUP */
 .phone-group {
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 .phone-group .code {
@@ -347,6 +378,10 @@ select.form--control {
     transition: all 0.3s ease;
 }
 
+.phone-input input {
+    border-radius: 0 12px 12px 0;
+}
+
 /* BUTTON HOVER (FIXED - NO RED!) */
 .btn-modern:hover {
     transform: translateY(-2px);
@@ -360,6 +395,12 @@ small {
     font-size: 12px;
     color: #94a3b8;
 }
+.country__select {
+            .select2-container--default .select2-selection--single {
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+            }
+        }
 
 /* RESPONSIVE */
 @media (max-width: 992px) {
@@ -379,5 +420,7 @@ small {
         flex-direction: column;
     }
 }
+
+
     </style>
 @endpush

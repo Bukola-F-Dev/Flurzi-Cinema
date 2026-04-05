@@ -389,8 +389,6 @@ select.form--control {
 /* BUTTON HOVER (FIXED - NO RED!) */
 .btn-modern:hover {
     transform: translateY(-2px);
-
-    background: linear-gradient(90deg, #9333ea, #4f46e5);
 }
 
 /* SMALL TEXT */

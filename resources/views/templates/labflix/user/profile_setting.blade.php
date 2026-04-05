@@ -82,7 +82,7 @@
         </div>
 
         <!-- Zip -->
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <label class="form-label">@lang('Zip Code')</label>
             <div class="input-group-modern">
                 <i class="las la-mail-bulk"></i>
@@ -91,7 +91,7 @@
         </div>
 
         <!-- City -->
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <label class="form-label">@lang('City')</label>
             <div class="input-group-modern">
                 <i class="las la-city"></i>
@@ -100,7 +100,7 @@
         </div>
 
         <!-- Country -->
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <label class="form-label">@lang('Country')</label>
             <div class="input-group-modern">
                 <i class="las la-globe"></i>
@@ -138,6 +138,11 @@ html, body {
 /* 🌌 Section spacing */
 .my-80 {
     padding: 80px 0;
+    background: radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.25), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.2), transparent 40%),
+                linear-gradient(135deg, #020617, #0f172a);
+                margin-top:180px;
+                margin-bottom:120px;
 }
 .glass-card {
     transition: all 0.3s ease;
@@ -227,10 +232,9 @@ html, body {
 
 .btn-modern:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(99,102,241,0.4);
+    background: #8b5cf6 !important;
 }
 
-/* ✨ Input group (icon style) */
 .input-group-modern {
     position: relative;
 }

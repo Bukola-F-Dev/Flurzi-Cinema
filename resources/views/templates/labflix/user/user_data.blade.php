@@ -196,7 +196,7 @@ body {
     display: flex;
     align-items: center;
     padding: 80px 0;
-
+margin-top:180px;
     /* Deep cinematic gradient */
     background: radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.25), transparent 40%),
                 radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.2), transparent 40%),
@@ -341,6 +341,15 @@ select.form--control {
     flex: 0 0 100%;
 }
 
+ 
+
+/* FIELD WRAPPER FIX (IMPORTANT) */
+.field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 /* PHONE GROUP */
 .phone-group {
     display: flex;
@@ -348,6 +357,7 @@ select.form--control {
     width: 100%;
 }
 
+/* COUNTRY CODE BOX */
 .phone-group .code {
     padding: 0 12px;
     height: 50px;
@@ -385,7 +395,6 @@ select.form--control {
 /* BUTTON HOVER (FIXED - NO RED!) */
 .btn-modern:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
 
     background: linear-gradient(90deg, #9333ea, #4f46e5);
 }

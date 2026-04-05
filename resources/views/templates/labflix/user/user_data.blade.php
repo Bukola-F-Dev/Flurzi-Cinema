@@ -172,189 +172,203 @@
 
 @push('style')
     <style>
-
+/* IMPORT FONT */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-html, body {
-    min-height: 100vh;
-    font-family: 'Poppins', sans-serif;
-    background: 
-        radial-gradient(circle at 20% 20%, rgba(124,58,237,0.25), transparent 40%),
-        radial-gradient(circle at 80% 30%, rgba(79,70,229,0.2), transparent 40%),
-        #020617;
-        color: #fff;
-}
 body {
-  
+    font-family: 'Poppins', sans-serif;
+    background: #020617;
 }
+
+/* SECTION BACKGROUND */
 .profile-setup {
     min-height: 100vh;
-    background:   radial-gradient(circle at 20% 20%, rgba(124,58,237,0.25), transparent 40%),
-        radial-gradient(circle at 80% 30%, rgba(79,70,229,0.2), transparent 40%),
-        #020617 !important;
     display: flex;
     align-items: center;
-        margin-top:180px;
-    margin-bottom:120px;
-}
-.profile-setup::before,
-.profile-setup::after {
-    content: '';
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    filter: blur(120px);
-    z-index: 0;
+    padding: 80px 0;
+
+    /* Deep cinematic gradient */
+    background: radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.25), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.2), transparent 40%),
+                linear-gradient(135deg, #020617, #0f172a);
 }
 
-.profile-setup::before {
-    background: rgba(124,58,237,0.35);
-    top: -100px;
-    left: -100px;
-}
-
-.profile-setup::after {
-    background: rgba(79,70,229,0.25);
-    bottom: -100px;
-    right: -100px;
-}
-/* MAIN CONTAINER */
+/* MAIN WRAPPER */
 .setup-wrapper {
-    display: grid;
-    grid-template-columns: 1.1fr 1.4fr;
-    max-width: 1100px;
-    margin: auto;
-    background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-    backdrop-filter: blur(30px);
-    border-radius: 28px;
+    display: flex;
+    border-radius: 24px;
     overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 
-        0 40px 100px rgba(0,0,0,0.7),
-        inset 0 1px 0 rgba(255,255,255,0.05);
-        position: relative;
-    z-index: 2;
+
+    /* GLASS EFFECT */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
 }
 
 /* LEFT PANEL */
 .setup-visual {
-    padding: 80px 60px;
-    background: linear-gradient(160deg, #1e1b4b, #312e81);
+    flex: 1;
+    padding: 60px;
+    color: #fff;
+
     display: flex;
     align-items: center;
-    justify-content: center;
+
+    background: linear-gradient(160deg, #1e1b4b, #0f172a);
     position: relative;
-    overflow: hidden;
 }
 
+/* glow effect */
 .setup-visual::before {
-    content: '';
+    content: "";
     position: absolute;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(124,58,237,0.6), transparent);
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, #a855f7, transparent 70%);
     top: -50px;
     left: -50px;
-    filter: blur(80px);
+    opacity: 0.4;
 }
 
+/* TEXT */
 .setup-visual h2 {
-    font-size: 32px;
+    font-size: 36px;
     font-weight: 600;
-    line-height: 1.3;
+    margin-bottom: 15px;
 }
 
 .setup-visual p {
-    opacity: 0.7;
-    margin-top: 10px;
+    color: #cbd5f5;
+    font-size: 15px;
 }
 
 /* RIGHT PANEL */
 .setup-form {
-    padding: 60px;
+    flex: 1.3;
+    padding: 50px;
+    color: #fff;
 }
 
-/* GRID */
+/* FORM GRID */
 .form-grid {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 18px;
 }
 
+/* FIELD GROUP (2 COLS) */
 .field-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    display: flex;
+    gap: 15px;
 }
 
+.field-group .field {
+    flex: 1;
+}
+
+/* FULL WIDTH FIELD */
 .field.full {
-    grid-column: span 2;
+    width: 100%;
 }
 
-/* PHONE GROUP FIX */
+/* LABEL */
+.field label {
+    font-size: 13px;
+    margin-bottom: 6px;
+    display: block;
+    color: #cbd5e1;
+}
+
+/* INPUTS */
+.form--control {
+    width: 100%;
+    height: 50px;
+    border-radius: 12px;
+    padding: 0 15px;
+
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    color: #fff;
+    font-size: 14px;
+
+    transition: all 0.3s ease;
+}
+
+/* INPUT FOCUS */
+.form--control:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.25);
+    outline: none;
+}
+
+/* SELECT */
+select.form--control {
+    appearance: none;
+}
+
+/* PHONE GROUP */
 .phone-group {
     display: flex;
     align-items: center;
-    background: rgba(255,255,255,0.05);
-    border-radius: 14px;
-    border: 1px solid rgba(255,255,255,0.12);
-    overflow: hidden;
 }
 
 .phone-group .code {
-    padding: 12px 16px;
-    background: rgba(255,255,255,0.08);
-    color: #cbd5f5;
-    font-weight: 500;
-    border-right: 1px solid rgba(255,255,255,0.1);
+    padding: 0 12px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+
+    border-radius: 12px 0 0 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border-right: none;
 }
 
 .phone-group input {
-    flex: 1;
-    border: none !important;
-    background: transparent !important;
+    border-radius: 0 12px 12px 0;
 }
 
 /* BUTTON */
 .btn-modern {
-    height: 52px;
-    font-size: 16px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, #8b5cf6, #6366f1);
-    position: relative;
-    overflow: hidden;
-}
+    height: 55px;
+    border-radius: 14px;
+    border: none;
 
-.btn-modern {
-    height: 52px;
-    font-size: 16px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, #8b5cf6, #6366f1) !important;
-    border: none !important;
-    color: #fff !important;
-    font-weight: 600;
-    position: relative;
-    overflow: hidden;
+    font-weight: 500;
+    font-size: 15px;
+
+    color: #fff;
+
+    background: linear-gradient(90deg, #a855f7, #6366f1);
     transition: all 0.3s ease;
 }
 
-/* FIXED HOVER */
+/* BUTTON HOVER (FIXED - NO RED!) */
 .btn-modern:hover {
-    background: linear-gradient(135deg, #7c3aed, #4f46e5) !important;
     transform: translateY(-2px);
-    
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+
+    background: linear-gradient(90deg, #9333ea, #4f46e5);
 }
 
-.btn-modern:focus,
-.btn-modern:active {
-    background: linear-gradient(135deg, #7c3aed, #4f46e5) !important;
-    outline: none;
-    
+/* SMALL TEXT */
+small {
+    font-size: 12px;
+    color: #94a3b8;
 }
+
+/* RESPONSIVE */
 @media (max-width: 992px) {
     .setup-wrapper {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+
+    .setup-visual {
+        display: none;
     }
 
     .setup-form {
@@ -362,106 +376,8 @@ body {
     }
 
     .field-group {
-        grid-template-columns: 1fr;
+        flex-direction: column;
     }
 }
-        .country__select {
-            .select2-container--default .select2-selection--single {
-                border-bottom-left-radius: 0;
-                border-top-left-radius: 0;
-            }
-        }
-  
-    .my-80 {
-        padding: 80px 0;
-    }
-
-    /* Glass Card */
-    .custom--card {
-        background: rgba(255, 255, 255, 0.06);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 18px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-        overflow: hidden;
-        transition: all 0.3s ease;
-    }
-
-    .custom--card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.75);
-    }
-
-    .card-header {
-        background: transparent;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
-        padding: 20px;
-    }
-
-    .card-title {
-        font-weight: 600;
-        letter-spacing: 0.5px;
-    }
-
-    .form--control {
-    height: 48px;
-    font-size: 14px;
-    border-radius: 14px;
-    background: rgba(255,255,255,0.04) !important;
-    border: 1px solid rgba(255,255,255,0.1) !important;
-    transition: all 0.25s ease;
-}
-
-.form--control:focus {
-    border-color: #8b5cf6 !important;
-    transform: scale(1.02);
-}
-
-    .form-label {
-        font-weight: 500;
-        font-size: 13px;
-        margin-bottom: 6px;
-        color: rgba(255,255,255,0.8);
-    }
-
-    /* Input group glass */
-    .input-group-text {
-        background: rgba(255, 255, 255, 0.07);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        color: #cbd5e1;
-        border-radius: 12px;
-    }
-
-    .input-group .form-control {
-        border-left: none;
-    }
-
-    /* Button */
-    .btn--base {
-        background: linear-gradient(135deg, #7c3aed, #4f46e5);
-        border: none;
-        padding: 12px;
-        border-radius: 12px;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        transition: 0.3s ease;
-    }
-
-    .btn--base:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
-    }
-
-    /* Select */
-    select.form--control {
-        appearance: none;
-    }
-
-    /* Error text */
-    .text--danger, .text-danger {
-        font-size: 12px;
-        margin-top: 4px;
-    }
     </style>
 @endpush

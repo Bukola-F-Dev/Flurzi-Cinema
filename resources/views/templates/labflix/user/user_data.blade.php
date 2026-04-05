@@ -189,13 +189,36 @@ body {
 }
 .profile-setup {
     min-height: 100vh;
-    background: radial-gradient(circle at top left, #0f172a, #020617 60%, #000);
+    background:   radial-gradient(circle at 20% 20%, rgba(124,58,237,0.25), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(79,70,229,0.2), transparent 40%),
+        #020617 !important;
     display: flex;
     align-items: center;
         margin-top:180px;
     margin-bottom:120px;
 }
+.profile-setup::before,
+.profile-setup::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: 0;
+}
 
+.profile-setup::before {
+    background: rgba(124,58,237,0.35);
+    top: -100px;
+    left: -100px;
+}
+
+.profile-setup::after {
+    background: rgba(79,70,229,0.25);
+    bottom: -100px;
+    right: -100px;
+}
 /* MAIN CONTAINER */
 .setup-wrapper {
     display: grid;
@@ -210,6 +233,8 @@ body {
     box-shadow: 
         0 40px 100px rgba(0,0,0,0.7),
         inset 0 1px 0 rgba(255,255,255,0.05);
+        position: relative;
+    z-index: 2;
 }
 
 /* LEFT PANEL */
@@ -318,14 +343,14 @@ body {
 .btn-modern:hover {
     background: linear-gradient(135deg, #7c3aed, #4f46e5) !important;
     transform: translateY(-2px);
-    box-shadow: 0 15px 40px rgba(124,58,237,0.35);
+    
 }
 
 .btn-modern:focus,
 .btn-modern:active {
     background: linear-gradient(135deg, #7c3aed, #4f46e5) !important;
     outline: none;
-    box-shadow: 0 0 0 4px rgba(139,92,246,0.25);
+    
 }
 @media (max-width: 992px) {
     .setup-wrapper {

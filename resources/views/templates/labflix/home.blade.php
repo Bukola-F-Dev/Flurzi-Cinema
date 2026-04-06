@@ -46,55 +46,6 @@
 
     </div>
 </section>
-
-@include('Template::partials.short_reels')
-@include('Template::partials.today_games')
-
-<!-- FEATURED -->
-<section class="section-modern">
-    <div class="container-fluid px-5">
-
-        <div class="section-header-modern">
-            <h2>Featured Content</h2>
-            <a href="#">View All →</a>
-        </div>
-
-        <div class="movie-grid">
-            @foreach ($featuredMovies as $featured)
-                <div class="movie-card-modern">
-
-                    <div class="poster">
-                        <img 
-                            data-src="{{ getImage(getFilePath('item_portrait') . '/' . @$featured->image->portrait) }}"
-                            src="{{ asset('assets/global/images/lazy.png') }}"
-                            class="lazy-loading-img"
-                        >
-
-                        <div class="overlay">
-                            <a href="{{ isPremium() ? route('watch', $featured->slug) : '/subscription' }}" class="play-btn">
-                                @if(isPremium())
-                                    <i class="las la-play"></i>
-                                @else
-                                    <i class="las la-lock"></i>
-                                @endif
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="info">
-                        <h6>{{ __(short_string($featured->title, 18)) }}</h6>
-
-                        <div class="meta">
-                            <span><i class="lar la-eye"></i> {{ numFormat($featured->view) }}</span>
-                            <span><i class="las la-star"></i> {{ $featured->ratings }}</span>
-                        </div>
-                    </div>
-
-                </div>
-            @endforeach
-        </div>
-    </div>
-</section>
 <section class="feature-scroll">
     <div class="feature-scroll-wrapper">
 
@@ -154,6 +105,56 @@
 
     </div>
 </section>
+
+@include('Template::partials.short_reels')
+@include('Template::partials.today_games')
+
+<!-- FEATURED -->
+<section class="section-modern">
+    <div class="container-fluid px-5">
+
+        <div class="section-header-modern">
+            <h2>Featured Content</h2>
+            <a href="#">View All →</a>
+        </div>
+
+        <div class="movie-grid">
+            @foreach ($featuredMovies as $featured)
+                <div class="movie-card-modern">
+
+                    <div class="poster">
+                        <img 
+                            data-src="{{ getImage(getFilePath('item_portrait') . '/' . @$featured->image->portrait) }}"
+                            src="{{ asset('assets/global/images/lazy.png') }}"
+                            class="lazy-loading-img"
+                        >
+
+                        <div class="overlay">
+                            <a href="{{ isPremium() ? route('watch', $featured->slug) : '/subscription' }}" class="play-btn">
+                                @if(isPremium())
+                                    <i class="las la-play"></i>
+                                @else
+                                    <i class="las la-lock"></i>
+                                @endif
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="info">
+                        <h6>{{ __(short_string($featured->title, 18)) }}</h6>
+
+                        <div class="meta">
+                            <span><i class="lar la-eye"></i> {{ numFormat($featured->view) }}</span>
+                            <span><i class="las la-star"></i> {{ $featured->ratings }}</span>
+                        </div>
+                    </div>
+
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
 
 
 <section class="section featured-movies py-5 mt-4" data-section="single1">

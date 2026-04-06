@@ -187,7 +187,108 @@
         </button>
     </div>
                     <ul class="navbar-nav main-menu ms-auto align-items-center gap-3">
-                        <li class="nav-item"><a class="nav-link fw-semibold nav-hover-link text-white" href="{{ route('home') }}">@lang('Home')</a></li>
+                   
+
+{{-- ALWAYS VISIBLE (Guest + Auth) --}}
+<li class="nav-item">
+    <a class="nav-link fw-semibold nav-hover-link text-white" href="{{ route('home') }}">
+        @lang('Home')
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link fw-semibold nav-hover-link text-white" href="{{ route('contact') }}">
+        @lang('Contact')
+    </a>
+</li>
+
+{{-- GUEST ONLY --}}
+@guest
+    {{-- nothing else here --}}
+@endguest
+
+
+{{-- AUTH USERS ONLY (FULL MENU) --}}
+@auth
+
+    {{-- Categories --}}
+    @foreach ($categories as $category)
+        @if ($category->subcategories->where('status', 1)->count() > 0)
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle fw-semibold nav-hover-link text-white"
+   href="javascript:void(0)"
+   data-bs-toggle="dropdown">
+                    {{ __($category->name) }}
+                    <i class="las la-angle-down small"></i>
+                </a>
+
+                <ul class="dropdown-menu border-0 shadow-lg bg-dark mt-2 p-2"
+                    style="border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);">
+
+                    @foreach ($category->subcategories as $subcategory)
+                        <li>
+                            <a class="dropdown-item py-2 text-white-50"
+                               href="{{ route('subCategory', $subcategory->id) }}">
+                                {{ __($subcategory->name) }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </li>
+        @else
+            <li class="nav-item">
+                <a class="nav-link fw-semibold nav-hover-link text-white"
+                   href="{{ route('category', $category->id) }}">
+                    {{ __($category->name) }}
+                </a>
+            </li>
+        @endif
+    @endforeach
+
+    {{-- Genres --}}
+    @if (gs('genre') && json_decode(gs('genres')))
+        <li class="nav-item">
+            <a class="nav-link text-white" href="{{ route('genre') }}">
+                @lang('Genres')
+            </a>
+        </li>
+    @endif
+
+    {{-- Tournament --}}
+    @if (gs('tournament'))
+        <li class="nav-item">
+            <a class="nav-link text-white" href="{{ route('live.tournaments') }}">
+                @lang('Tournaments')
+            </a>
+        </li>
+    @endif
+
+    {{-- Live TV --}}
+    @if (gs('live_tv'))
+        <li class="nav-item">
+            <a class="nav-link text-white" href="{{ route('live.tv') }}">
+                @lang('Live TV')
+            </a>
+        </li>
+    @endif
+
+    {{-- More Dropdown --}}
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">
+            @lang('More')
+        </a>
+
+        <ul class="dropdown-menu bg-dark mt-2 p-2">
+            <li><a class="dropdown-item text-white-50" href="{{ route('user.deposit.history') }}">Payment History</a></li>
+            <li><a class="dropdown-item text-white-50" href="{{ route('user.wishlist.index') }}">Wishlist</a></li>
+            <li><a class="dropdown-item text-white-50" href="{{ route('user.watch.history') }}">Watch History</a></li>
+        </ul>
+    </li>
+
+@endauth
+</ul>
+
+                    <!--    <li class="nav-item"><a class="nav-link fw-semibold nav-hover-link text-white" href="{{ route('home') }}">@lang('Home')</a></li>
                         
                         @foreach ($categories as $category)
                             @if ($category->subcategories->where('status', 1)->count() > 0)
@@ -247,7 +348,7 @@
     </ul>
 </li>
                         @endguest
-                    </ul>
+                    </ul> -->
 
                     <div class="nav-right d-flex align-items-center ms-xl-5 ps-xl-4 border-start border-secondary border-opacity-25 gap-3">
                         
@@ -255,7 +356,7 @@
                             <i class="fas fa-search"></i>
                         </button>
 
-                        @guest
+                     <!--   @guest
                             <div class="auth-btns d-flex gap-2">
                             <a href="{{ route('user.login') }}" class="btn btn-sm btn-login-custom px-3 fw-bold">@lang('Login')</a>
                                 @if (gs('registration'))
@@ -300,7 +401,35 @@
                                     @endforeach
                                 </ul>
                             </div>
-                        @endif
+                        @endif -->
+                        @guest
+<div class="auth-btns d-flex gap-2">
+    <a href="{{ route('user.login') }}" class="btn btn-sm btn-login-custom px-3 fw-bold">
+        @lang('Login')
+    </a>
+
+    @if (gs('registration'))
+        <a href="{{ route('user.register') }}" class="btn btn-sm btn-danger px-4 rounded-1 fw-bold">
+            @lang('REGISTER')
+        </a>
+    @endif
+</div>
+@endguest
+
+
+@auth
+<div class="dropdown">
+    <button class="nav-user-btn dropdown-toggle" data-bs-toggle="dropdown">
+        <i class="las la-user-circle fs-5 me-1"></i>
+        {{ auth()->user()->username }}
+    </button>
+
+    <div class="dropdown-menu dropdown-menu-end bg-dark p-2">
+        <a class="dropdown-item text-white-50" href="{{ route('user.profile.setting') }}">Profile</a>
+        <a class="dropdown-item text-danger" href="{{ route('user.logout') }}">Logout</a>
+    </div>
+</div>
+@endauth
 
                         <a href="{{ route('pay','premium') }}" class="btn btn-sm btn-warning fw-bold px-3 rounded-1 shadow-sm" style="background: #ffb400; border: none; font-size: 0.75rem;">
                             <i class="las la-crown me-1"></i> PREMIUM

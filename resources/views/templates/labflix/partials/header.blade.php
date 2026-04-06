@@ -173,13 +173,13 @@
                     <h4 class="mb-0 fw-bold text-uppercase tracking-wider text-white">Flurzi<span class="text-danger">Cinema</span></h4>
                 </a>
 
-                <button class="navbar-toggler border-0 shadow-none text-white" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" type="button" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="menu-toggle"><i class="las la-bars fs-2"></i></span>
-                </button>
+                <button class="navbar-toggler border-0 shadow-none text-white" type="button" id="menuToggle">
+    <span class="menu-icon">
+        <i class="las la-bars fs-2"></i>
+    </span>
+</button>
 
-                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+<div class="navbar-collapse custom-mobile-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav main-menu ms-auto align-items-center gap-3">
                         <li class="nav-item"><a class="nav-link fw-semibold nav-hover-link text-white" href="{{ route('home') }}">@lang('Home')</a></li>
                         
@@ -375,6 +375,108 @@
     border-color: rgba(255,255,255,0.3);
     transform: translateY(-1px);
 }
+/* MOBILE MENU BASE */
+@media (max-width: 1199px) {
+
+.custom-mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    background: rgba(10, 10, 25, 0.98);
+    backdrop-filter: blur(20px);
+    padding: 80px 20px 30px;
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    transition: all 0.4s ease;
+    overflow-y: auto;
+}
+
+/* ACTIVE STATE */
+.custom-mobile-menu.active {
+    left: 0;
+}
+
+/* MENU ITEMS */
+.main-menu {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px;
+    width: 100%;
+}
+
+.main-menu .nav-item {
+    width: 100%;
+}
+
+.main-menu .nav-link {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.main-menu .nav-link:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+/* DROPDOWNS INSIDE MOBILE */
+.dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding-left: 10px;
+}
+
+.dropdown-item {
+    font-size: 0.85rem;
+    padding-left: 15px;
+}
+
+/* RIGHT SIDE ITEMS */
+.nav-right {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 100%;
+    margin-top: 20px;
+    gap: 10px;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.nav-right a,
+.nav-right button {
+    width: 100%;
+    justify-content: flex-start;
+}
+
+/* OVERLAY */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+}
 
 .dropdown-menu {
     background: rgba(10, 10, 20, 0.95) !important;
@@ -417,4 +519,43 @@
         border-radius: 4px;
     }
 </style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const toggleBtn = document.getElementById("menuToggle");
+    const menu = document.querySelector(".custom-mobile-menu");
+
+    // Create overlay dynamically
+    const overlay = document.createElement("div");
+    overlay.classList.add("menu-overlay");
+    document.body.appendChild(overlay);
+
+    toggleBtn.addEventListener("click", function () {
+        menu.classList.toggle("active");
+        overlay.classList.toggle("active");
+
+        // Toggle icon
+        const icon = toggleBtn.querySelector("i");
+        if (menu.classList.contains("active")) {
+            icon.classList.remove("la-bars");
+            icon.classList.add("la-times");
+        } else {
+            icon.classList.remove("la-times");
+            icon.classList.add("la-bars");
+        }
+    });
+
+    // Close when clicking overlay
+    overlay.addEventListener("click", function () {
+        menu.classList.remove("active");
+        overlay.classList.remove("active");
+
+        const icon = toggleBtn.querySelector("i");
+        icon.classList.remove("la-times");
+        icon.classList.add("la-bars");
+    });
+
+});
+</script>
   

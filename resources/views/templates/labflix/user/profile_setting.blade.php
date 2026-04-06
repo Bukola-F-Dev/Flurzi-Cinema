@@ -250,6 +250,127 @@ html, body {
 .input-group-modern input {
     padding-left: 35px;
 }
+/* =========================
+   TABLET (<= 992px)
+========================= */
+@media (max-width: 992px) {
+
+.glass-card {
+    padding: 28px;
+    border-radius: 18px;
+}
+
+.my-80 {
+    padding: 60px 15px;
+    margin-top: 120px;
+    margin-bottom: 80px;
+}
+
+.dashboard-edit-profile__thumb img {
+    width: 100px;
+    height: 100px;
+}
+
+.edit-pen {
+    right: calc(50% - -30px);
+    bottom: 8px;
+}
+
+/* grid becomes more spaced */
+.row.g-4 {
+    gap: 16px 0;
+}
+}
+
+/* =========================
+MOBILE (<= 576px)
+========================= */
+@media (max-width: 576px) {
+
+.my-80 {
+    padding: 40px 10px;
+    margin-top: 100px;
+    margin-bottom: 60px;
+}
+
+.glass-card {
+    padding: 20px;
+    border-radius: 16px;
+}
+
+/* PROFILE IMAGE */
+.dashboard-edit-profile__thumb img {
+    width: 90px;
+    height: 90px;
+}
+
+.edit-pen {
+    padding: 7px;
+    right: calc(50% - -25px);
+    bottom: 6px;
+}
+
+/* FORM GRID STACK FIX */
+.row.g-4 {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.col-sm-6,
+.col-sm-12 {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+}
+
+/* INPUTS */
+.form--control {
+    font-size: 13px;
+    padding: 10px 12px;
+    border-radius: 10px;
+}
+
+.input-group-modern i {
+    font-size: 14px;
+    left: 10px;
+}
+
+.input-group-modern input {
+    padding-left: 32px;
+}
+
+/* LABELS */
+.form-label {
+    font-size: 12px;
+}
+
+/* BUTTON */
+.btn-modern {
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 12px;
+}
+}
+
+/* =========================
+VERY SMALL (<= 400px)
+========================= */
+@media (max-width: 400px) {
+
+.glass-card {
+    padding: 16px;
+}
+
+.dashboard-edit-profile__thumb img {
+    width: 80px;
+    height: 80px;
+}
+
+.btn-modern {
+    font-size: 13px;
+}
+}
 </style>
 @endsection
 

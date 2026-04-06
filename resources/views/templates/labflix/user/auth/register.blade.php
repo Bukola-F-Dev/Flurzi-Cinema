@@ -394,6 +394,137 @@ margin-top: 180px;
     background: radial-gradient(circle, rgba(99,102,241,0.4), transparent 70%);
     filter: blur(80px);
 }
+/* =========================
+   TABLET (<= 992px)
+========================= */
+@media (max-width: 992px) {
+
+.auth-full {
+    flex-direction: column;
+    padding: 35px;
+    gap: 25px;
+    margin: 120px auto;
+}
+
+.auth-left,
+.auth-right {
+    width: 100%;
+    text-align: center;
+}
+
+.auth-left h1 {
+    font-size: 34px;
+}
+
+.auth-left p {
+    font-size: 15px;
+}
+
+/* make form feel less cramped */
+.auth-right {
+    width: 100%;
+    padding: 25px;
+}
+
+.auth-form .row {
+    margin: 0;
+}
+
+.auth-form .col-md-6,
+.auth-form .col-12 {
+    padding: 0;
+}
+}
+
+/* =========================
+MOBILE (<= 576px)
+========================= */
+@media (max-width: 576px) {
+
+.auth-modern {
+    padding: 20px 10px;
+}
+
+.auth-full {
+    margin: 90px 10px;
+    padding: 20px;
+    border-radius: 18px;
+    gap: 18px;
+}
+
+/* LEFT SIDE */
+.auth-left h1 {
+    font-size: 26px;
+    line-height: 1.2;
+}
+
+.auth-left p {
+    font-size: 13px;
+}
+
+/* RIGHT PANEL */
+.auth-right {
+    padding: 18px;
+    border-radius: 16px;
+}
+
+/* FORM STACK FIX */
+.auth-form .row {
+    display: block;
+}
+
+.auth-form .col-md-6,
+.auth-form .col-12 {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+}
+
+/* INPUTS */
+.icon-input input {
+    padding: 12px 12px 12px 40px;
+    font-size: 13px;
+}
+
+.form-group label {
+    font-size: 12px;
+}
+
+/* BUTTON */
+.btn-auth {
+    padding: 12px;
+    font-size: 14px;
+}
+
+/* TERMS TEXT */
+.terms-wrap {
+    font-size: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+/* DISABLED TEXT */
+.form-disabled-text {
+    font-size: 18px;
+    padding: 0 10px;
+}
+}
+
+@media (max-width: 400px) {
+
+.auth-left h1 {
+    font-size: 22px;
+}
+
+.auth-right {
+    padding: 15px;
+}
+
+.btn-auth {
+    font-size: 13px;
+}
+}
     </style>
 @endpush
 

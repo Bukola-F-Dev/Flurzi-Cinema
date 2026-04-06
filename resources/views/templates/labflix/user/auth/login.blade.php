@@ -230,5 +230,58 @@
 .auth-social {
     margin-top: 25px;
     text-align: center;
+} 
+
+@media (max-width: 992px) {
+
+    .auth-full {
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px;
+        margin-top: 120px;
+        margin-bottom: 80px;
+    }
+
+    .auth-left,
+    .auth-right {
+        width: 100%;
+        text-align: center;
+    }
+
+    .auth-left h1 {
+        font-size: 36px;
+    }
+
+    .auth-left p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .auth-full {
+        padding: 20px;
+        margin-top: 100px;
+        margin-bottom: 60px;
+        border-radius: 15px;
+    }
+
+    .auth-left h1 {
+        font-size: 28px;
+    }
+
+    .auth-left p {
+        font-size: 13px;
+    }
+
+    .icon-input input {
+        padding: 12px 12px 12px 40px;
+        font-size: 13px;
+    }
+
+    .btn-auth {
+        padding: 12px;
+        font-size: 14px;
+    }
 }
 </style>

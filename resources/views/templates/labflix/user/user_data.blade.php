@@ -404,23 +404,131 @@ small {
             }
         }
 
-/* RESPONSIVE */
+/* =========================
+   TABLET (<= 992px)
+========================= */
 @media (max-width: 992px) {
-    .setup-wrapper {
-        flex-direction: column;
-    }
 
-    .setup-visual {
-        display: none;
-    }
+.profile-setup {
+    padding: 60px 20px;
+    margin-top: 120px;
+}
 
-    .setup-form {
-        padding: 30px;
-    }
+.setup-wrapper {
+    flex-direction: column;
+    border-radius: 18px;
+}
 
-    .field-group {
-        flex-direction: column;
-    }
+.setup-visual {
+    display: none; /* already hidden but enforced */
+}
+
+.setup-form {
+    padding: 35px 25px;
+}
+
+.field-group {
+    flex-direction: column;
+    gap: 12px;
+}
+
+.field-group .field {
+    width: 100%;
+}
+
+.setup-form h4 {
+    text-align: center;
+    font-size: 18px;
+}
+}
+
+/* =========================
+MOBILE (<= 576px)
+========================= */
+@media (max-width: 576px) {
+
+.profile-setup {
+    padding: 40px 12px;
+    margin-top: 100px;
+}
+
+.setup-wrapper {
+    border-radius: 16px;
+}
+
+.setup-form {
+    padding: 22px 18px;
+}
+
+/* INPUTS */
+.form--control {
+    height: 46px;
+    font-size: 13px;
+    border-radius: 10px;
+}
+
+.field label {
+    font-size: 12px;
+}
+
+/* FIELD SPACING */
+.form-grid {
+    gap: 14px;
+}
+
+/* PHONE INPUT FIX */
+.phone-input {
+    flex-direction: row;
+    width: 100%;
+}
+
+.phone-input .code {
+    height: 46px;
+    padding: 0 10px;
+    font-size: 13px;
+}
+
+.phone-input input {
+    height: 46px;
+    font-size: 13px;
+}
+
+/* BUTTON */
+.btn-modern {
+    height: 48px;
+    font-size: 14px;
+    border-radius: 12px;
+}
+
+/* SELECT2 FIX */
+.select2-container {
+    width: 100% !important;
+}
+
+/* TEXT ALIGN */
+.setup-form h4 {
+    font-size: 16px;
+    margin-bottom: 18px;
+}
+}
+
+/* =========================
+VERY SMALL DEVICES (<= 400px)
+========================= */
+@media (max-width: 400px) {
+
+.setup-form {
+    padding: 18px 14px;
+}
+
+.btn-modern {
+    font-size: 13px;
+    height: 45px;
+}
+
+.form--control {
+    font-size: 12px;
+}
 }
 
 

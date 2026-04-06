@@ -486,7 +486,30 @@
         opacity: 1 !important;
         color: #fff !important;
     }
+/* NAV LINK BASE */
+.navbar .nav-link {
+    position: relative;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
 
+/* UNDERLINE (hidden by default) */
+.navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: #dc3545; /* red */
+    transition: width 0.3s ease;
+}
+
+/* ON HOVER → SHOW LINE */
+.navbar .nav-link:hover::after {
+    width: 100%;
+}
     .nav-user-btn {
     background: transparent;
     border: 1px solid rgba(255,255,255,0.15);

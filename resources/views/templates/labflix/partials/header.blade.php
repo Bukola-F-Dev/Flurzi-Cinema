@@ -449,7 +449,7 @@
 </div>
 
 <style>
-/* Professional Hover Underline Animation */
+ 
 .nav-hover-link {
         position: relative;
         transition: opacity 0.3s ease;
@@ -474,7 +474,7 @@
 }
 
 .nav-dropdown-link:hover {
-    background: rgba(255, 255, 255, 0.06);
+   
     color: #fff !important;
     opacity: 1;
 }

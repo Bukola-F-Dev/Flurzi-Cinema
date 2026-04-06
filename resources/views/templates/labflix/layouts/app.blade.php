@@ -27,6 +27,7 @@
     <link href="{{ asset(activeTemplate(true) . 'css/custom.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/cinema-style.css') }}">
     <link rel="icon" href="{{ asset('assets/images/favicon.jpg') }}" sizes="64x64">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     @stack('style')
 

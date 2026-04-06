@@ -191,13 +191,24 @@
 
 {{-- ✅ GUEST ONLY (MINIMAL NETFLIX STYLE) --}}
 @guest
-    {{-- intentionally empty menu --}}
+{{-- ALWAYS VISIBLE --}}
+
 @endguest
 
 
 {{-- 🔵 AUTH USERS ONLY (FULL MENU) --}}
 @auth
+<li class="nav-item">
+    <a class="nav-link text-white" href="{{ route('home') }}">
+        Home
+    </a>
+</li>
 
+<li class="nav-item">
+    <a class="nav-link text-white" href="{{ route('contact') }}">
+        Contact
+    </a>
+</li>
     {{-- Categories --}}
     @foreach ($categories as $category)
         @if ($category->subcategories->where('status', 1)->count() > 0)

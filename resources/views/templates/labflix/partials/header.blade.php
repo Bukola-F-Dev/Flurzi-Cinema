@@ -381,9 +381,16 @@
     border-color: rgba(255,255,255,0.3);
     transform: translateY(-1px);
 }
+.mobile-menu-header {
+    display: none;
+}
+
+
 /* MOBILE MENU BASE */
 @media (max-width: 1199px) {
-
+    .mobile-menu-header {
+        display: flex;
+    }
 .custom-mobile-menu {
     position: fixed;
     top: 0;

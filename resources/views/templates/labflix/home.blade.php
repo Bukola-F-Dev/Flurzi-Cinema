@@ -716,7 +716,7 @@
     border-top: 1px solid rgba(255,255,255,0.05);
     border-bottom: 1px solid rgba(255,255,255,0.05);
     overflow: hidden;
-    padding: 14px 0;
+    padding: 20px 0;
 }
 
 .feature-scroll-wrapper {
@@ -735,10 +735,10 @@
 .feature-item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 16px;
     color: rgba(255,255,255,0.8);
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     white-space: nowrap;
     transition: 0.3s ease;
 }

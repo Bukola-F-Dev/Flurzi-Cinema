@@ -180,6 +180,12 @@
 </button>
 
 <div class="navbar-collapse custom-mobile-menu" id="navbarSupportedContent">
+ 
+ <div class="mobile-menu-header">
+        <button class="menu-close-btn" id="menuClose">
+            <i class="las la-times"></i>
+        </button>
+    </div>
                     <ul class="navbar-nav main-menu ms-auto align-items-center gap-3">
                         <li class="nav-item"><a class="nav-link fw-semibold nav-hover-link text-white" href="{{ route('home') }}">@lang('Home')</a></li>
                         
@@ -404,6 +410,37 @@
 .custom-mobile-menu.active {
     right: 0;
 }
+.mobile-menu-header {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu-close-btn {
+    background: rgba(255,255,255,0.08);
+    border: none;
+    color: #fff;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.menu-close-btn:hover {
+    background: rgba(255,255,255,0.15);
+    transform: rotate(90deg);
+}
 
 /* MENU ITEMS */
 .main-menu {
@@ -526,7 +563,7 @@
     }
     .btn-login-custom:hover {
         background-color: #fff !important;
-        color: #000 !important; /* Text turns black when background is white */
+        color: #000 !important; 
         border-radius: 4px;
     }
 </style>
@@ -536,8 +573,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const toggleBtn = document.getElementById("menuToggle");
     const menu = document.querySelector(".custom-mobile-menu");
+    const closeBtn = document.getElementById("menuClose");
 
-    // Create overlay dynamically
     const overlay = document.createElement("div");
     overlay.classList.add("menu-overlay");
     document.body.appendChild(overlay);
@@ -546,18 +583,30 @@ document.addEventListener("DOMContentLoaded", function () {
         menu.classList.toggle("active");
         overlay.classList.toggle("active");
 
-        // Toggle icon
         const icon = toggleBtn.querySelector("i");
+
         if (menu.classList.contains("active")) {
             icon.classList.remove("la-bars");
             icon.classList.add("la-times");
+            document.body.style.overflow = "hidden";
         } else {
             icon.classList.remove("la-times");
             icon.classList.add("la-bars");
+            document.body.style.overflow = "auto";
         }
     });
 
-    // Close when clicking overlay
+    closeBtn.addEventListener("click", function () {
+        menu.classList.remove("active");
+        overlay.classList.remove("active");
+
+        const icon = toggleBtn.querySelector("i");
+        icon.classList.remove("la-times");
+        icon.classList.add("la-bars");
+
+        document.body.style.overflow = "auto";
+    });
+
     overlay.addEventListener("click", function () {
         menu.classList.remove("active");
         overlay.classList.remove("active");
@@ -565,6 +614,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const icon = toggleBtn.querySelector("i");
         icon.classList.remove("la-times");
         icon.classList.add("la-bars");
+
+        document.body.style.overflow = "auto";
     });
 
 });

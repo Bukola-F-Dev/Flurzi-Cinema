@@ -105,7 +105,6 @@
 
     </div>
 </section>
-
 <section class="section-modern featured-centered">
 
 <div class="trending-container">
@@ -456,12 +455,12 @@
                         </div>
                     </div>
                 @endforeach
-            </div> -->
+            </div> 
         </div>
     </section>
 
-    <div class="sections">   </div> -->
-@endsection
+    <div class="sections">   </div> 
+@endsection -->
  
 
 @push('script')
@@ -580,9 +579,7 @@
         }
     </script>
     <style>
-        .section-modern {
-    margin-top: 120px;
-}
+ 
  /* Import Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 

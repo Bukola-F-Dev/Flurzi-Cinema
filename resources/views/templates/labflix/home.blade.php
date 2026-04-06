@@ -95,6 +95,65 @@
         </div>
     </div>
 </section>
+<section class="feature-scroll">
+    <div class="feature-scroll-wrapper">
+
+        <div class="feature-track">
+            <!-- ITEM -->
+            <div class="feature-item">
+                <i class="fas fa-play-circle"></i>
+                <span>Enjoy</span>
+            </div>
+
+            <div class="feature-item">
+                <i class="fas fa-redo"></i>
+                <span>Rewatch</span>
+            </div>
+
+            <div class="feature-item">
+                <i class="fas fa-film"></i>
+                <span>Watch Anywhere</span>
+            </div>
+
+            <div class="feature-item">
+                <i class="fas fa-bolt"></i>
+                <span>Instant Streaming</span>
+            </div>
+
+            <div class="feature-item">
+                <i class="fas fa-star"></i>
+                <span>Top Rated</span>
+            </div>
+
+            <!-- DUPLICATE FOR INFINITE EFFECT -->
+            <div class="feature-item">
+                <i class="fas fa-play-circle"></i>
+                <span>Enjoy</span>
+            </div>
+
+            <div class="feature-item">
+                <i class="fas fa-redo"></i>
+                <span>Rewatch</span>
+            </div>
+
+            <div class="feature-item">
+                <i class="fas fa-film"></i>
+                <span>Watch Anywhere</span>
+            </div>
+
+            <div class="feature-item">
+                <i class="fas fa-bolt"></i>
+                <span>Instant Streaming</span>
+            </div>
+
+            <div class="feature-item">
+                <i class="fas fa-star"></i>
+                <span>Top Rated</span>
+            </div>
+        </div>
+
+    </div>
+</section>
 
 
 <section class="section featured-movies py-5 mt-4" data-section="single1">
@@ -650,6 +709,79 @@
 .info h6 {
     font-size: 14px;
     color: #fff;
+}
+.feature-scroll {
+    background: rgba(10, 10, 20, 0.9);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    overflow: hidden;
+    padding: 14px 0;
+}
+
+.feature-scroll-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.feature-track {
+    display: flex;
+    gap: 40px;
+    width: max-content;
+    animation: scrollX 25s linear infinite;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255,255,255,0.8);
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    transition: 0.3s ease;
+}
+
+.feature-item i {
+    color: #e50914;
+    font-size: 1.2rem;
+}
+
+.feature-item:hover {
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* ANIMATION */
+@keyframes scrollX {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+.feature-scroll:hover .feature-track {
+    animation-play-state: paused;
+}
+.feature-scroll::before,
+.feature-scroll::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 80px;
+    height: 100%;
+    z-index: 2;
+}
+
+.feature-scroll::before {
+    left: 0;
+    background: linear-gradient(to right, #05010f, transparent);
+}
+
+.feature-scroll::after {
+    right: 0;
+    background: linear-gradient(to left, #05010f, transparent);
 }
 
 .meta {

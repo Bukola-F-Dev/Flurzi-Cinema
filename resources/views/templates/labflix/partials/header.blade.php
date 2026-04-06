@@ -391,6 +391,13 @@
     .mobile-menu-header {
         display: flex;
     }
+    .menu-icon i {
+    transition: all 0.3s ease;
+}
+
+.menu-icon i.rotate {
+    transform: rotate(180deg);
+}
 .custom-mobile-menu {
     position: fixed;
     top: 0;
@@ -587,21 +594,23 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.appendChild(overlay);
 
     toggleBtn.addEventListener("click", function () {
-        menu.classList.toggle("active");
-        overlay.classList.toggle("active");
+    menu.classList.toggle("active");
+    overlay.classList.toggle("active");
 
-        const icon = toggleBtn.querySelector("i");
+    const icon = toggleBtn.querySelector("i");
 
-        if (menu.classList.contains("active")) {
-            icon.classList.remove("la-bars");
-            icon.classList.add("la-times");
-            document.body.style.overflow = "hidden";
-        } else {
-            icon.classList.remove("la-times");
-            icon.classList.add("la-bars");
-            document.body.style.overflow = "auto";
-        }
-    });
+    icon.classList.toggle("rotate");
+
+    if (menu.classList.contains("active")) {
+        icon.classList.remove("la-bars");
+        icon.classList.add("la-times");
+        document.body.style.overflow = "hidden";
+    } else {
+        icon.classList.remove("la-times");
+        icon.classList.add("la-bars");
+        document.body.style.overflow = "auto";
+    }
+});
 
     closeBtn.addEventListener("click", function () {
         menu.classList.remove("active");

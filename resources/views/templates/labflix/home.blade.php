@@ -124,9 +124,9 @@
 
 
 <section class="section-modern featured-centered">
-<div class="section-header-modern text-center  mb-5">
-            <h2>Trending Now</h2>
-        </div>
+
+            <h2 class="text-center mb-5"> Trending Now</h2>
+         
 
 <div class="trending-container">
    

@@ -372,6 +372,93 @@
     transform: translateY(-3px) scale(1.05);
 }
 
+/* =========================
+   FOOTER MOBILE FIX
+========================= */
+@media (max-width: 768px) {
+
+.footer-content {
+    padding: 50px 15px;
+}
+
+/* Stack all columns neatly */
+.footer-modern .row {
+    row-gap: 35px;
+}
+
+.footer-modern .col-lg-4,
+.footer-modern .col-lg-2 {
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+}
+
+/* Brand section alignment */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-text {
+    text-align: center;
+    max-width: 90%;
+}
+
+/* Social icons center */
+.social-links-modern {
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Links alignment */
+.footer-links {
+    padding: 0;
+    text-align: center;
+}
+
+.footer-links li {
+    list-style: none;
+}
+
+/* Subscribe form fix */
+.subscribe-modern {
+    flex-direction: row;
+    width: 100%;
+    max-width: 100%;
+}
+
+.subscribe-modern input {
+    font-size: 13px;
+    padding: 12px;
+}
+
+/* App buttons center */
+.apps {
+    justify-content: center;
+}
+
+.apps img {
+    height: 40px;
+}
+
+/* Bottom section stacking */
+.footer-bottom .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+}
+
+.footer-policies {
+    margin-top: 10px;
+}
+
+.footer-policies a {
+    margin: 0 8px;
+}
+}
+
 </style>
 
  

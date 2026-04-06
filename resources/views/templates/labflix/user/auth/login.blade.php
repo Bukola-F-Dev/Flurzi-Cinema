@@ -232,56 +232,93 @@
     text-align: center;
 } 
 
+
+/* =========================
+   TABLET (<= 992px)
+========================= */
 @media (max-width: 992px) {
 
-    .auth-full {
-        flex-direction: column;
-        gap: 30px;
-        padding: 30px;
-        margin-top: 120px;
-        margin-bottom: 80px;
-    }
+.auth-full {
+    flex-direction: column;
+    gap: 25px;
+    padding: 25px;
+    margin-top: 120px;
+    margin-bottom: 80px;
 
-    .auth-left,
-    .auth-right {
-        width: 100%;
-        text-align: center;
-    }
+    width: 100%;
+    max-width: 100%;
 
-    .auth-left h1 {
-        font-size: 36px;
-    }
-
-    .auth-left p {
-        font-size: 15px;
-    }
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
+/* ❌ REMOVE CENTERING THAT BREAKS LABELS */
+.auth-left,
+.auth-right {
+    width: 100%;
+    text-align: left; /* FIX: was center */
+}
+
+.auth-left h1 {
+    font-size: 34px;
+}
+
+.auth-left p {
+    font-size: 15px;
+}
+}
+
+/* =========================
+MOBILE (<= 576px)
+========================= */
 @media (max-width: 576px) {
 
-    .auth-full {
-        padding: 20px;
-        margin-top: 100px;
-        margin-bottom: 60px;
-        border-radius: 15px;
-    }
+html, body {
+    overflow-x: hidden; /* FIX RIGHT SIDE SCROLL */
+}
 
-    .auth-left h1 {
-        font-size: 28px;
-    }
+.auth-modern {
+    width: 100%;
+    overflow-x: hidden;
+}
 
-    .auth-left p {
-        font-size: 13px;
-    }
+.auth-full {
+    padding: 18px;
+    margin: 90px 10px;
+    border-radius: 15px;
 
-    .icon-input input {
-        padding: 12px 12px 12px 40px;
-        font-size: 13px;
-    }
+    width: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+}
 
-    .btn-auth {
-        padding: 12px;
-        font-size: 14px;
-    }
+/* KEEP TEXT LEFT ALIGNED */
+.auth-left,
+.auth-right {
+    text-align: left !important;
+}
+
+.auth-left h1 {
+    font-size: 26px;
+}
+
+.auth-left p {
+    font-size: 13px;
+}
+
+/* INPUT FIX */
+.icon-input input {
+    padding: 12px 12px 12px 40px;
+    font-size: 13px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* BUTTON */
+.btn-auth {
+    padding: 12px;
+    font-size: 14px;
+    width: 100%;
+}
 }
 </style>

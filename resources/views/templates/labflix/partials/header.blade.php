@@ -697,6 +697,35 @@
         color: #000 !important; 
         border-radius: 4px;
     }
+    .custom-mobile-menu .nav-link,
+.custom-mobile-menu .nav-hover-link {
+    color: #ffffff !important;
+    opacity: 1 !important; /* REMOVE FADE */
+}
+
+/* Ensure dropdown items are readable */
+.custom-mobile-menu .dropdown-item {
+    color: rgba(255,255,255,0.85) !important;
+}
+
+/* Strong hover state */
+.custom-mobile-menu .nav-link:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* Active/focus state */
+.custom-mobile-menu .nav-link:focus,
+.custom-mobile-menu .nav-link:active {
+    color: #ffffff !important;
+}
+
+/* FIX dropdown visibility */
+.custom-mobile-menu .dropdown-menu {
+    background: rgba(20, 20, 35, 0.98) !important;
+    border-radius: 10px;
+}
 </style>
 
 <script>

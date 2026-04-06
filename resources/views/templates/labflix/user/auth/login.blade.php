@@ -246,7 +246,7 @@
     flex-direction: column;
     gap: 25px;
     padding: 25px;
-margin-top:30px;
+margin-top:100px;
     width: 100%;
     max-width: 100%;
     margin: 60px 10px;

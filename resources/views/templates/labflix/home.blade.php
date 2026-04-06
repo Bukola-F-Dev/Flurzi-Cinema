@@ -121,7 +121,7 @@
             <!-- CARD 1 -->
             <div class="featured-card">
                 <div class="poster">
-                    <img src="https://placehold.co/300x450/111827/ffffff?text=Movie+1" alt="Movie 1">
+                    <img src="{{ asset('assets/images/Legend.jpg') }}"  alt="Movie 1">
 
                     <div class="overlay">
                         <a href="#" class="play-btn">
@@ -131,7 +131,7 @@
                 </div>
 
                 <div class="info text-center">
-                    <h6>Shadow Legacy</h6>
+                    <h6>Legend</h6>
                     <div class="meta justify-content-center">
                         <span><i class="las la-star"></i> 4.8</span>
                     </div>
@@ -141,7 +141,7 @@
             <!-- CARD 2 -->
             <div class="featured-card">
                 <div class="poster">
-                    <img src="https://placehold.co/300x450/0b0b0f/ffffff?text=Movie+2" alt="Movie 2">
+                    <img src="{{ asset('assets/images/GodFather.jpg') }}"  alt="Movie 2">
 
                     <div class="overlay">
                         <a href="#" class="play-btn">
@@ -151,7 +151,7 @@
                 </div>
 
                 <div class="info text-center">
-                    <h6>Neon Nights</h6>
+                    <h6>God Father</h6>
                     <div class="meta justify-content-center">
                         <span><i class="las la-star"></i> 4.6</span>
                     </div>
@@ -161,7 +161,7 @@
             <!-- CARD 3 -->
             <div class="featured-card">
                 <div class="poster">
-                    <img src="https://placehold.co/300x450/1f2937/ffffff?text=Movie+3" alt="Movie 3">
+                    <img src="{{ asset('assets/images/Power.jpg') }}"  alt="Movie 3">
 
                     <div class="overlay">
                         <a href="#" class="play-btn">
@@ -171,7 +171,7 @@
                 </div>
 
                 <div class="info text-center">
-                    <h6>Crimson Sky</h6>
+                    <h6>Power</h6>
                     <div class="meta justify-content-center">
                         <span><i class="las la-star"></i> 4.7</span>
                     </div>
@@ -186,7 +186,7 @@
 @include('Template::partials.short_reels')
 @include('Template::partials.today_games')
 <!-- FEATURED -->
-<section class="section-modern featured-centered">
+<!-- <section class="section-modern featured-centered">
     <div class="container">
 
         <div class="section-header-modern text-center mb-5">
@@ -277,12 +277,12 @@
     </div>
 </section> 
 
-<!-- FEATURED -->
+<!-- FEATURED  
  
 
 
 <section class="section featured-movies py-5 mt-4" data-section="single1">
-    <div class="container-fluid px-lg-5">
+    <div class="container-fluid px-lg-5"> --> 
       <!--  <div class="row align-items-center mb-4">
             <div class="col-8">
                 <div class="section-header border-start border-danger border-4 ps-3">
@@ -294,7 +294,7 @@
             </div>
         </div> -->
         
-        <div class="movie-slider-one">
+     <!--   <div class="movie-slider-one">
             @foreach ($featuredMovies as $featured)
                 <div class="movie-card modern-card px-2" data-text="{{ $featured->versionName }}">
                     <div class="card-inner overflow-hidden rounded-3 position-relative shadow-hover">
@@ -331,7 +331,7 @@
             @endforeach
         </div>
     </div>
-</section>
+</section> -->
 
 
 
@@ -621,8 +621,7 @@
     font-size: 1.8rem;
     font-weight: 700;
     letter-spacing: 0.5px;
-    position: relative;
-    display: inline-block;
+    text-align:center;
 }
 
 /* optional underline glow */
@@ -647,19 +646,53 @@
 .trending-container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 60px 30px;
 
-    padding: 50px 30px;
+    position: relative;
+    overflow: hidden;
 
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 18px;
+    /* DARK BASE */
+    background: linear-gradient(180deg, #0b0014, #0a0a12);
 
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    border-radius: 20px;
 
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow: 
+        0 25px 80px rgba(0,0,0,0.6),
+        inset 0 0 60px rgba(168, 85, 247, 0.08);
 }
-/* CARD */
+.trending-container::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: -150px;
+    left: -150px;
+
+    background: radial-gradient(circle, rgba(168,85,247,0.35), transparent 60%);
+    filter: blur(80px);
+    z-index: 0;
+}
+
+.trending-container::after {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    bottom: -150px;
+    right: -150px;
+
+    background: radial-gradient(circle, rgba(99,102,241,0.25), transparent 60%);
+    filter: blur(90px);
+    z-index: 0;
+}
+.trending-container > * {
+    position: relative;
+    z-index: 1;
+}
 .featured-card {
     width: 260px;
     transition: all 0.3s ease;

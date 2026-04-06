@@ -751,7 +751,7 @@
 
 /* Strong hover state */
 .custom-mobile-menu .nav-link:hover {
-    background: rgba(255, 255, 255, 0.08) !important;
+ 
     color: #ffffff !important;
     opacity: 1 !important;
 }

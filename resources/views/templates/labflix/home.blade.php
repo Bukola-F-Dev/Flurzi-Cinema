@@ -106,6 +106,82 @@
     </div>
 </section>
 
+<section class="section-modern featured-centered">
+    <div class="container">
+
+        <!-- HEADER -->
+        <div class="section-header-modern text-center mb-5">
+            <h2>Trending Now</h2>
+        </div>
+
+        <!-- MOVIE ROW -->
+        <div class="featured-row">
+
+            <!-- CARD 1 -->
+            <div class="featured-card">
+                <div class="poster">
+                    <img src="https://placehold.co/300x450/111827/ffffff?text=Movie+1" alt="Movie 1">
+
+                    <div class="overlay">
+                        <a href="#" class="play-btn">
+                            <i class="las la-play"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="info text-center">
+                    <h6>Shadow Legacy</h6>
+                    <div class="meta justify-content-center">
+                        <span><i class="las la-star"></i> 4.8</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="featured-card">
+                <div class="poster">
+                    <img src="https://placehold.co/300x450/0b0b0f/ffffff?text=Movie+2" alt="Movie 2">
+
+                    <div class="overlay">
+                        <a href="#" class="play-btn">
+                            <i class="las la-play"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="info text-center">
+                    <h6>Neon Nights</h6>
+                    <div class="meta justify-content-center">
+                        <span><i class="las la-star"></i> 4.6</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="featured-card">
+                <div class="poster">
+                    <img src="https://placehold.co/300x450/1f2937/ffffff?text=Movie+3" alt="Movie 3">
+
+                    <div class="overlay">
+                        <a href="#" class="play-btn">
+                            <i class="las la-play"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="info text-center">
+                    <h6>Crimson Sky</h6>
+                    <div class="meta justify-content-center">
+                        <span><i class="las la-star"></i> 4.7</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
 @include('Template::partials.short_reels')
 @include('Template::partials.today_games')
 <!-- FEATURED -->
@@ -155,7 +231,7 @@
 
     </div>
 </section>
-<!-- <section class="section-modern">
+ <section class="section-modern">
     <div class="container-fluid px-5">
 
         <div class="section-header-modern">
@@ -198,56 +274,10 @@
             @endforeach
         </div>
     </div>
-</section> -->
+</section> 
 
 <!-- FEATURED -->
-<section class="section-modern featured-centered">
-    <div class="container">
-
-        <div class="section-header-modern text-center mb-5">
-            <h2>Featured Content</h2>
-            <a href="#">View All →</a>
-        </div>
-
-        <div class="featured-row">
-
-            @foreach ($featuredMovies->take(3) as $featured)
-                <div class="featured-card">
-
-                    <div class="poster">
-                        <img 
-                            data-src="{{ getImage(getFilePath('item_portrait') . '/' . @$featured->image->portrait) }}"
-                            src="{{ asset('assets/global/images/lazy.png') }}"
-                            class="lazy-loading-img"
-                        >
-
-                        <div class="overlay">
-                            <a href="{{ isPremium() ? route('watch', $featured->slug) : '/subscription' }}" class="play-btn">
-                                @if(isPremium())
-                                    <i class="las la-play"></i>
-                                @else
-                                    <i class="las la-lock"></i>
-                                @endif
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="info text-center">
-                        <h6>{{ __(short_string($featured->title, 20)) }}</h6>
-
-                        <div class="meta justify-content-center">
-                            <span><i class="las la-star"></i> {{ $featured->ratings }}</span>
-                        </div>
-                    </div>
-
-                </div>
-            @endforeach
-
-        </div>
-
-    </div>
-</section>
-
+ 
 
 
 <section class="section featured-movies py-5 mt-4" data-section="single1">

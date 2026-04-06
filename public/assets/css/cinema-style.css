@@ -21,6 +21,9 @@ select,
 textarea {
     font-family: 'Poppins', sans-serif !important;
 }
+* {
+    box-sizing: border-box;
+}
 /* --- Modern Cinema Footer --- */
 .footer-modern {
     background-color: #0b0b0f;

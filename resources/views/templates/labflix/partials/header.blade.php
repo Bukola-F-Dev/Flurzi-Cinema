@@ -187,47 +187,31 @@
         </button>
     </div>
                     <ul class="navbar-nav main-menu ms-auto align-items-center gap-3">
-                   
+                    <ul class="navbar-nav main-menu ms-auto align-items-center gap-3">
 
-{{-- ALWAYS VISIBLE (Guest + Auth) --}}
-<li class="nav-item">
-    <a class="nav-link fw-semibold nav-hover-link text-white" href="{{ route('home') }}">
-        @lang('Home')
-    </a>
-</li>
-
-<li class="nav-item">
-    <a class="nav-link fw-semibold nav-hover-link text-white" href="{{ route('contact') }}">
-        @lang('Contact')
-    </a>
-</li>
-
-{{-- GUEST ONLY --}}
+{{-- ✅ GUEST ONLY (MINIMAL NETFLIX STYLE) --}}
 @guest
-    {{-- nothing else here --}}
+    {{-- intentionally empty menu --}}
 @endguest
 
 
-{{-- AUTH USERS ONLY (FULL MENU) --}}
+{{-- 🔵 AUTH USERS ONLY (FULL MENU) --}}
 @auth
 
     {{-- Categories --}}
     @foreach ($categories as $category)
         @if ($category->subcategories->where('status', 1)->count() > 0)
             <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle fw-semibold nav-hover-link text-white"
-   href="javascript:void(0)"
-   data-bs-toggle="dropdown">
+                <a class="nav-link dropdown-toggle text-white"
+                   href="javascript:void(0)"
+                   data-bs-toggle="dropdown">
                     {{ __($category->name) }}
-                    <i class="las la-angle-down small"></i>
                 </a>
 
-                <ul class="dropdown-menu border-0 shadow-lg bg-dark mt-2 p-2"
-                    style="border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);">
-
+                <ul class="dropdown-menu bg-dark p-2">
                     @foreach ($category->subcategories as $subcategory)
                         <li>
-                            <a class="dropdown-item py-2 text-white-50"
+                            <a class="dropdown-item text-white-50"
                                href="{{ route('subCategory', $subcategory->id) }}">
                                 {{ __($subcategory->name) }}
                             </a>
@@ -237,7 +221,7 @@
             </li>
         @else
             <li class="nav-item">
-                <a class="nav-link fw-semibold nav-hover-link text-white"
+                <a class="nav-link text-white"
                    href="{{ route('category', $category->id) }}">
                     {{ __($category->name) }}
                 </a>
@@ -249,7 +233,7 @@
     @if (gs('genre') && json_decode(gs('genres')))
         <li class="nav-item">
             <a class="nav-link text-white" href="{{ route('genre') }}">
-                @lang('Genres')
+                Genres
             </a>
         </li>
     @endif
@@ -258,7 +242,7 @@
     @if (gs('tournament'))
         <li class="nav-item">
             <a class="nav-link text-white" href="{{ route('live.tournaments') }}">
-                @lang('Tournaments')
+                Tournaments
             </a>
         </li>
     @endif
@@ -267,18 +251,18 @@
     @if (gs('live_tv'))
         <li class="nav-item">
             <a class="nav-link text-white" href="{{ route('live.tv') }}">
-                @lang('Live TV')
+                Live TV
             </a>
         </li>
     @endif
 
-    {{-- More Dropdown --}}
+    {{-- More --}}
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">
-            @lang('More')
+            More
         </a>
 
-        <ul class="dropdown-menu bg-dark mt-2 p-2">
+        <ul class="dropdown-menu bg-dark p-2">
             <li><a class="dropdown-item text-white-50" href="{{ route('user.deposit.history') }}">Payment History</a></li>
             <li><a class="dropdown-item text-white-50" href="{{ route('user.wishlist.index') }}">Wishlist</a></li>
             <li><a class="dropdown-item text-white-50" href="{{ route('user.watch.history') }}">Watch History</a></li>
@@ -431,9 +415,13 @@
 </div>
 @endauth
 
+                       
+
+                        @auth
                         <a href="{{ route('pay','premium') }}" class="btn btn-sm btn-warning fw-bold px-3 rounded-1 shadow-sm" style="background: #ffb400; border: none; font-size: 0.75rem;">
                             <i class="las la-crown me-1"></i> PREMIUM
                         </a>
+@endauth
                     </div>
                 </div>
             </nav>

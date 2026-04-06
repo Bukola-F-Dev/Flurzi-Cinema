@@ -74,19 +74,23 @@
 @endsection
 
 <style>
+
+* {
+    box-sizing: border-box;
+}
 /* FULL LAYOUT */
 .auth-full {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-width: 1100px;
+    max-width: 1000px;
     margin: auto;
     gap: 60px;
     padding: 40px;
     margin-top:180px;
     border-radius: 20px; 
-     
+    overflow: hidden;
     box-shadow: 0 20px 60px rgba(0,0,0,0.5);
     margin-bottom:120px;
 
@@ -95,7 +99,7 @@
     backdrop-filter: blur(25px);
     
 }
-/* PURPLE GLOW (top-left) */
+ 
 .auth-full::before {
     content: "";
     position: absolute;
@@ -242,17 +246,15 @@
     flex-direction: column;
     gap: 25px;
     padding: 25px;
-    margin-top: 120px;
-    margin-bottom: 80px;
 
     width: 100%;
     max-width: 100%;
-
+    margin: 60px 10px;
     box-sizing: border-box;
     overflow-x: hidden;
 }
 
-/* ❌ REMOVE CENTERING THAT BREAKS LABELS */
+ 
 .auth-left,
 .auth-right {
     width: 100%;
@@ -320,5 +322,5 @@ html, body {
     font-size: 14px;
     width: 100%;
 }
-}
+} 
 </style>

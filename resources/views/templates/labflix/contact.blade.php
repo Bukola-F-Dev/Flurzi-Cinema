@@ -157,8 +157,7 @@ transition: all 0.3s ease;
 .contact-section-modern {
     position: relative;
     padding: 120px 0 100px;
-    margin-top: 80px;
-    margin-bottom:80px;
+ 
 
     /* Cinematic gradient background */
     background: radial-gradient(circle at 20% 20%, rgba(168,85,247,0.15), transparent 40%),

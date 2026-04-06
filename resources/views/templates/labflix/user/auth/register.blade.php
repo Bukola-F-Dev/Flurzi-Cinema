@@ -406,10 +406,17 @@ margin-top: 180px;
     margin: 120px auto;
 }
 
-.auth-left,
 .auth-right {
+    text-align: left !important;
+}
+
+/* ensure labels ALWAYS stay left */
+.auth-right label,
+.auth-form label,
+.form-group label {
+    display: block;
+    text-align: left !important;
     width: 100%;
-    text-align: center;
 }
 
 .auth-left h1 {

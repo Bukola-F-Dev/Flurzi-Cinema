@@ -246,12 +246,17 @@
     flex-direction: column;
     gap: 25px;
     padding: 25px;
-margin-top:100px;
+
     width: 100%;
     max-width: 100%;
     margin: 60px 10px;
     box-sizing: border-box;
     overflow-x: hidden;
+}
+.auth-modern {
+    width: 100%;
+    overflow-x: hidden;
+    margin-top:100px;
 }
 
  

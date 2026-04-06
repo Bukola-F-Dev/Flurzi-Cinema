@@ -108,9 +108,54 @@
 
 @include('Template::partials.short_reels')
 @include('Template::partials.today_games')
-
 <!-- FEATURED -->
-<section class="section-modern">
+<section class="section-modern featured-centered">
+    <div class="container">
+
+        <div class="section-header-modern text-center mb-5">
+            <h2>Featured Content</h2>
+            <a href="#">View All →</a>
+        </div>
+
+        <div class="featured-row">
+
+            @foreach ($featuredMovies->take(3) as $featured)
+                <div class="featured-card">
+
+                    <div class="poster">
+                        <img 
+                            data-src="{{ getImage(getFilePath('item_portrait') . '/' . @$featured->image->portrait) }}"
+                            src="{{ asset('assets/global/images/lazy.png') }}"
+                            class="lazy-loading-img"
+                        >
+
+                        <div class="overlay">
+                            <a href="{{ isPremium() ? route('watch', $featured->slug) : '/subscription' }}" class="play-btn">
+                                @if(isPremium())
+                                    <i class="las la-play"></i>
+                                @else
+                                    <i class="las la-lock"></i>
+                                @endif
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="info text-center">
+                        <h6>{{ __(short_string($featured->title, 20)) }}</h6>
+
+                        <div class="meta justify-content-center">
+                            <span><i class="las la-star"></i> {{ $featured->ratings }}</span>
+                        </div>
+                    </div>
+
+                </div>
+            @endforeach
+
+        </div>
+
+    </div>
+</section>
+<!-- <section class="section-modern">
     <div class="container-fluid px-5">
 
         <div class="section-header-modern">
@@ -152,6 +197,54 @@
                 </div>
             @endforeach
         </div>
+    </div>
+</section> -->
+
+<!-- FEATURED -->
+<section class="section-modern featured-centered">
+    <div class="container">
+
+        <div class="section-header-modern text-center mb-5">
+            <h2>Featured Content</h2>
+            <a href="#">View All →</a>
+        </div>
+
+        <div class="featured-row">
+
+            @foreach ($featuredMovies->take(3) as $featured)
+                <div class="featured-card">
+
+                    <div class="poster">
+                        <img 
+                            data-src="{{ getImage(getFilePath('item_portrait') . '/' . @$featured->image->portrait) }}"
+                            src="{{ asset('assets/global/images/lazy.png') }}"
+                            class="lazy-loading-img"
+                        >
+
+                        <div class="overlay">
+                            <a href="{{ isPremium() ? route('watch', $featured->slug) : '/subscription' }}" class="play-btn">
+                                @if(isPremium())
+                                    <i class="las la-play"></i>
+                                @else
+                                    <i class="las la-lock"></i>
+                                @endif
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="info text-center">
+                        <h6>{{ __(short_string($featured->title, 20)) }}</h6>
+
+                        <div class="meta justify-content-center">
+                            <span><i class="las la-star"></i> {{ $featured->ratings }}</span>
+                        </div>
+                    </div>
+
+                </div>
+            @endforeach
+
+        </div>
+
     </div>
 </section>
 
@@ -482,6 +575,106 @@
     inset: 0;
     background: rgba(5, 1, 15, 0.6);
     backdrop-filter: blur(6px);
+}
+/* SECTION */
+.featured-centered {
+    padding: 100px 0;
+}
+
+/* ROW (CENTERED FLEX) */
+.featured-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* CARD */
+.featured-card {
+    width: 260px;
+    transition: all 0.3s ease;
+}
+
+/* POSTER */
+.featured-card .poster {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.featured-card .poster img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+/* HOVER EFFECT */
+.featured-card:hover img {
+    transform: scale(1.08);
+}
+
+/* OVERLAY */
+.featured-card .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.featured-card:hover .overlay {
+    opacity: 1;
+}
+
+/* PLAY BUTTON */
+.play-btn {
+    width: 55px;
+    height: 55px;
+    background: #e50914;
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    font-size: 22px;
+
+    transition: 0.3s ease;
+}
+
+.play-btn:hover {
+    transform: scale(1.1);
+}
+
+/* INFO */
+.featured-card .info {
+    margin-top: 12px;
+}
+
+.featured-card h6 {
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* META */
+.featured-card .meta {
+    display: flex;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: #ccc;
+    margin-top: 5px;
+}
+
+.featured-card .meta i {
+    color: #fbbf24;
 }
 
 /* CONTENT */
@@ -858,6 +1051,26 @@
 .btn-equal {
     height: 48px;
 }
+@media (max-width: 768px) {
+
+.featured-row {
+    gap: 20px;
+}
+
+.featured-card {
+    width: 80%;
+    max-width: 280px;
+}
+
+.featured-card .poster img {
+    height: 300px;
+}
+
+.featured-card h6 {
+    font-size: 0.9rem;
+}
+}
+
         </style>
 @endpush
 

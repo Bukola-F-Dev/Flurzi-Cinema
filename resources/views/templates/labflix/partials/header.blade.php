@@ -381,7 +381,8 @@
 .custom-mobile-menu {
     position: fixed;
     top: 0;
-    left: -100%;
+    right: -100%;
+    left: auto; 
     width: 80%;
     max-width: 320px;
     height: 100vh;
@@ -396,11 +397,12 @@
 
     transition: all 0.4s ease;
     overflow-y: auto;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.6);
 }
 
 /* ACTIVE STATE */
 .custom-mobile-menu.active {
-    left: 0;
+    right: 0;
 }
 
 /* MENU ITEMS */
@@ -409,6 +411,15 @@
     align-items: flex-start !important;
     gap: 10px;
     width: 100%;
+}
+.auth-btns {
+    flex-direction: column !important;
+    width: 100%;
+}
+
+.auth-btns a {
+    width: 100%;
+    text-align: center;
 }
 
 .main-menu .nav-item {

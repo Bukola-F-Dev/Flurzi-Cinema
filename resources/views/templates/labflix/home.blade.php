@@ -107,11 +107,12 @@
 </section>
 
 <section class="section-modern featured-centered">
+
 <div class="trending-container">
-    <div class="container">
+    <div class="trending-inner">
 
         <!-- HEADER -->
-        <div class="section-header-modern text-center mb-5">
+        <div class="section-header-modern text-center  mb-5">
             <h2>Trending Now</h2>
         </div>
 
@@ -659,7 +660,8 @@
 
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
-
+    display: flex;
+    justify-content: center;
     box-shadow: 
         0 25px 80px rgba(0,0,0,0.6),
         inset 0 0 60px rgba(168, 85, 247, 0.08);
@@ -854,7 +856,14 @@
     text-decoration: none;
     transition: 0.3s ease;
 }
-
+.trending-inner {
+    max-width: 1100px;
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(168,85,247,0.25);
+    border-radius: 20px;
+    padding: 50px 30px;
+}
 /* PRIMARY BUTTON */
 .btn-modern.primary {
     background: #fff;

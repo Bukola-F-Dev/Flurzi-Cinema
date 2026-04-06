@@ -107,6 +107,7 @@
 </section>
 
 <section class="section-modern featured-centered">
+<div class="trending-container">
     <div class="container">
 
         <!-- HEADER -->
@@ -178,7 +179,7 @@
             </div>
 
         </div>
-
+</div>
     </div>
 </section>
 
@@ -610,6 +611,31 @@
 .featured-centered {
     padding: 100px 0;
 }
+.section-header-modern {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header-modern h2 {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    position: relative;
+    display: inline-block;
+}
+
+/* optional underline glow */
+.section-header-modern h2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #e50914, transparent);
+}
 
 /* ROW (CENTERED FLEX) */
 .featured-row {
@@ -618,7 +644,21 @@
     gap: 30px;
     flex-wrap: wrap;
 }
+.trending-container {
+    max-width: 1200px;
+    margin: 0 auto;
 
+    padding: 50px 30px;
+
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
 /* CARD */
 .featured-card {
     width: 260px;
@@ -1086,6 +1126,15 @@
 .featured-row {
     gap: 20px;
 }
+.trending-container {
+        padding: 30px 15px;
+        border-radius: 14px;
+    }
+
+    .section-header-modern h2 {
+        font-size: 1.4rem;
+    }
+
 
 .featured-card {
     width: 80%;

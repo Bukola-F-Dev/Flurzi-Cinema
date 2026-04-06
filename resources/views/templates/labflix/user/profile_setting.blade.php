@@ -292,6 +292,10 @@ MOBILE (<= 576px)
     margin-top: 100px;
     margin-bottom: 60px;
 }
+.row.g-4 {
+        --bs-gutter-x: 0;
+        --bs-gutter-y: 14px;
+    }
 
 .glass-card {
     padding: 20px;
@@ -310,19 +314,8 @@ MOBILE (<= 576px)
     bottom: 6px;
 }
 
-/* FORM GRID STACK FIX */
-.row.g-4 {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-.col-sm-6,
-.col-sm-12 {
-    width: 100%;
-    max-width: 100%;
-    flex: 0 0 100%;
-}
+ 
+ 
 
 /* INPUTS */
 .form--control {

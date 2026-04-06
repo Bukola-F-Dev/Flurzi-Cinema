@@ -26,20 +26,36 @@
 
         <div class="hero-modern-actions">
 
-            <!-- WATCH NOW -->
-            <a href="#" class="btn-modern primary">
-                <i class="fas fa-play"></i>
-                <span>WATCH NOW</span>
-            </a>
+ 
+@guest
+    <a href="{{ route('user.login') }}" class="btn-modern secondary">
+        <i class="las la-sign-in-alt"></i>
+        <span>Login</span>
+    </a>
 
-            <!-- MORE INFO -->
-            <a href="#" class="btn-modern secondary">
-                <i class="las la-info-circle"></i>
-                <span>More Info</span>
-            </a>
+    @if (gs('registration'))
+        <a href="{{ route('user.register') }}" class="btn-modern primary">
+            <i class="las la-user-plus"></i>
+            <span>Register</span>
+        </a>
+    @endif
+@endguest
 
-        </div>
- <!-- NEW: Center Image -->
+
+ 
+@auth
+    <a href="#" class="btn-modern primary">
+        <i class="fas fa-play"></i>
+        <span>WATCH NOW</span>
+    </a>
+
+    <a href="#" class="btn-modern secondary">
+        <i class="las la-info-circle"></i>
+        <span>More Info</span>
+    </a>
+@endauth
+
+</div> <!-- NEW: Center Image -->
  <div class="hero-modern-image">
  <img src="{{ asset('assets/images/Hero_Image.png') }}" alt="happy users">
         </div>

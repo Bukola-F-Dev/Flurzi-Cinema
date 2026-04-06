@@ -187,9 +187,8 @@
         </button>
     </div>
                     <ul class="navbar-nav main-menu ms-auto align-items-center gap-3">
-                    <ul class="navbar-nav main-menu ms-auto align-items-center gap-3">
-
-{{-- ✅ GUEST ONLY (MINIMAL NETFLIX STYLE) --}}
+                  
+ 
 @guest
 {{-- ALWAYS VISIBLE --}}
 
@@ -345,7 +344,7 @@
                         @endguest
                     </ul> -->
 
-                    <div class="nav-right d-flex align-items-center ms-xl-5 ps-xl-4 border-start border-secondary border-opacity-25 gap-3">
+                    <div class="nav-right d-flex align-items-center ms-xl-3 ps-xl-2 border-start border-secondary border-opacity-25 gap-3">
                         
                         <button class="nav-right__search-btn bg-transparent text-white search-box-bordered">
                             <i class="fas fa-search"></i>
@@ -535,6 +534,16 @@
 .mobile-menu-header {
     display: none;
 }
+.navbar .main-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* consistent spacing */
+}
+
+.navbar .nav-item {
+    display: flex;
+    align-items: center;
+}
 
 
 /* MOBILE MENU BASE */
@@ -634,10 +643,7 @@
     border-radius: 8px;
     font-size: 0.95rem;
 }
-
-.main-menu .nav-link:hover {
-    background: rgba(255,255,255,0.05);
-}
+ 
 
 /* DROPDOWNS INSIDE MOBILE */
 .dropdown-menu {
@@ -663,6 +669,7 @@
     gap: 10px;
     border: none !important;
     padding: 0 !important;
+    margin-left:30;
 }
 
 .nav-right a,

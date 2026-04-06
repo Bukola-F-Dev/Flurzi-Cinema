@@ -125,7 +125,7 @@
 
 <section class="section-modern featured-centered">
 
-            <h2 class="text-center mb-5"> Trending Now</h2>
+            <h2 class="text-center fw-bold mb-5"> Trending Now</h2>
          
 
 <div class="trending-container">
@@ -652,60 +652,35 @@
     height: 2px;
     background: linear-gradient(90deg, transparent, #e50914, transparent);
 }
+.featured-card {
+    width: 260px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.02);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
 
-/* ROW (CENTERED FLEX) */
+.featured-card:hover {
+    transform: scale(1.05);
+    border-color: rgba(255,255,255,0.2);
+  
+}
+ 
+
 .featured-row {
     display: flex;
     justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
+    align-items: stretch;
 }
 .trending-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 60px 30px;
+    padding: 40px 20px;
 
     position: relative;
-    overflow: hidden;
-
-    /* DARK BASE */
-    background: linear-gradient(180deg, #0b0014, #0a0a12);
-
-    border: 1px solid rgba(168, 85, 247, 0.25);
-    border-radius: 20px;
-
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    display: flex;
-    justify-content: center;
-    box-shadow: 
-        0 25px 80px rgba(0,0,0,0.6),
-        inset 0 0 60px rgba(168, 85, 247, 0.08);
-}
-.trending-container::before {
-    content: "";
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    top: -150px;
-    left: -150px;
-
-    background: radial-gradient(circle, rgba(168,85,247,0.35), transparent 60%);
-    filter: blur(80px);
-    z-index: 0;
-}
-
-.trending-container::after {
-    content: "";
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    bottom: -150px;
-    right: -150px;
-
-    background: radial-gradient(circle, rgba(99,102,241,0.25), transparent 60%);
-    filter: blur(90px);
-    z-index: 0;
 }
 .trending-container > * {
     position: relative;

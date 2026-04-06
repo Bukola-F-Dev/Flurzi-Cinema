@@ -106,10 +106,11 @@
     </div>
 </section>
 
+
+<section class="section-modern featured-centered">
 <div class="section-header-modern text-center  mb-5">
             <h2>Trending Now</h2>
         </div>
-<section class="section-modern featured-centered">
 
 <div class="trending-container">
    
